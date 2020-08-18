@@ -1,26 +1,25 @@
-# Prerequisites
-*.d
-
 # Object files
 *.o
 *.ko
 *.obj
 *.elf
 
-# Linker output
-*.ilk
-*.map
-*.exp
-
 # Precompiled Headers
 *.gch
 *.pch
 
 # Libraries
-*.lib
-*.a
-*.la
-*.lo
+Inc/Backup/
+Src/Backup/
+MDK-ARM/BY02
+MDK-ARM/STM32F030
+MDK-ARM/DC_CHARGER_CONTROLLER_HW_TEST
+lpc55_lcd_dcore0/debug
+lpc55_lcd_dcore1/debug
+si_prj
+MDK-ARM/startup_stm32f030x6.lst
+.tags
+.tags_sorted_by_file
 
 # Shared objects (inc. Windows DLLs)
 *.dll
@@ -38,15 +37,3 @@
 
 # Debug files
 *.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
