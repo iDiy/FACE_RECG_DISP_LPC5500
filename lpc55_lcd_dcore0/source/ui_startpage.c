@@ -44,6 +44,7 @@ WM_HWIN CreateEnroll_face(void);
 #define ID_IMAGE_0_IMAGE_0  0x00
 
 // USER START (Optionally insert additional defines)
+#define WM_IC (WM_USER + 0x00)
 // USER END
 
 /*********************************************************************
@@ -94,6 +95,9 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   // USER END
 
   switch (pMsg->MsgId) {
+    case WM_IC:
+        g_EnrollFaceWMHWIN = CreateEnroll_face();
+    break;
   case WM_INIT_DIALOG:
     //
     // Initialization of 'lpc55sxx_imx7ulp_faceid'
@@ -183,15 +187,21 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 *
 *       Createlpc55sxx_imx7ulp_faceid
 */
+  WM_HWIN hWinStart;
 WM_HWIN Createlpc55sxx_imx7ulp_faceid(void);
 WM_HWIN Createlpc55sxx_imx7ulp_faceid(void) {
   WM_HWIN hWin;
 
   hWin = GUI_CreateDialogBox(_aDialogCreate, GUI_COUNTOF(_aDialogCreate), _cbDialog, WM_HBKWIN, 0, 0);
+  hWinStart = hWin;
   return hWin;
 }
 
 // USER START (Optionally insert additional public code)
+void CreateEnroll_faceTrigger(void)
+{
+  WM_SendMessageNoPara(WM_GetClientWindow(hWinStart),WM_IC);
+}
 // USER END
 
 /*************************** End of file ****************************/

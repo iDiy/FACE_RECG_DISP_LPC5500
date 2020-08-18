@@ -32,6 +32,7 @@ static uint16_t LCD_WORD_WRITE(uint16_t data);
  * @param[1]    cmd      command or data.
  * @ret         NULL
 */
+#if 0
 void lcd_write_byte(uint8_t data, uint8_t cmd)
 {
     if (cmd) {
@@ -44,18 +45,39 @@ void lcd_write_byte(uint8_t data, uint8_t cmd)
     LCD_BYTE_WRITE(data);
     LCD_CS_SET();
 }
+#endif
+void LCD_WR_DATA8(uint8_t data)
+{
+    // LCD_CS_CLR();
+    LCD_BYTE_WRITE(data);
+    // LCD_CS_SET();
+}
 
 /**
  * @brief       lcd_write_word    Write a word data to LCD driver chip
  * @param[0]    data              write data content.
  * @ret         NULL
 */
+#if 0
 void lcd_write_word(uint16_t data)
 {
     LCD_DC_SET();
     LCD_CS_CLR();
     LCD_WORD_WRITE(data);
     LCD_CS_SET();
+}
+#endif
+void LCD_WR_DATA(uint16_t data)
+{
+    // LCD_CS_CLR();
+    LCD_WORD_WRITE(data);
+    // LCD_CS_SET();
+}
+void LCD_WR_REG(uint8_t dat)
+{
+	LCD_DC_CLR();//D′?üá?
+	LCD_WR_DATA8(dat);
+	LCD_DC_SET();//D′êy?Y
 }
 
 /**
@@ -64,12 +86,13 @@ void lcd_write_word(uint16_t data)
  * @param[1]    val               data content.
  * @ret         NULL
 */
+#if 0
 void lcd_write_reg(uint8_t reg, uint8_t val)
 {
     lcd_write_byte(reg, LCD_CMD);
     lcd_write_byte(val, LCD_DATA);
 }
-
+#endif
 /**
  * @brief       lcd_hardware_init   lcd hardware initialize
  * @param[0]    NULL
@@ -99,6 +122,7 @@ uint8_t lcd_hardware_init(void)
     GPIO_PinInit(GPIO, LCD_CS_PORT,  LCD_CS_PIN,  &gpioPinConfig);
     GPIO_PinInit(GPIO, LCD_DC_PORT,  LCD_DC_PIN,  &gpioPinConfig);
     GPIO_PinInit(GPIO, LCD_TP_PORT,  LCD_TP_PIN,  &gpioPinConfig);
+    GPIO_PinInit(GPIO, LCD_RST_PORT,  LCD_RST_PIN,  &gpioPinConfig);
     
     gpioPinConfig.outputLogic  = 0u; /* output low as default. */
     GPIO_PinInit(GPIO, LCD_BKL_PORT, LCD_BKL_PIN, &gpioPinConfig);    
@@ -163,13 +187,14 @@ static void lcd_delayms(uint32_t count)
  * @param[1]    n
  * @ret         result
 */
+#if 0
 static uint32_t lcd_pow(uint8_t m, uint8_t n)
 {
     uint32_t result = 1;
     while(n --) result *= m;
     return result;
 }
-
+#endif
 /* -------------------------------------------------------------------------- */
 /*                              Public function                               */
 /* -------------------------------------------------------------------------- */
@@ -180,6 +205,7 @@ static uint32_t lcd_pow(uint8_t m, uint8_t n)
  * @param[1]    y position
  * @ret         NULL
 */
+#if 0
 void lcd_set_cursor(uint16_t xpos, uint16_t ypos)
 {
     lcd_write_reg(0x02, xpos >> 8);
@@ -187,29 +213,51 @@ void lcd_set_cursor(uint16_t xpos, uint16_t ypos)
     lcd_write_reg(0x06, ypos >> 8);
     lcd_write_reg(0x07, ypos & 0xFF);   /* Row Start */
 }
-
+#endif
+#if 0
+void LCD_Address_Set(uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2)
+{
+    LCD_WR_REG(0x2a);//列地址设置
+    LCD_WR_DATA(x1);
+    LCD_WR_DATA(x2);
+    LCD_WR_REG(0x2b);//行地址设置
+    LCD_WR_DATA(y1);
+    LCD_WR_DATA(y2);
+    LCD_WR_REG(0x2c);//储存器写
+}
+#endif
 /**
  * @brief       lcd_clear_screen   clear the lcd with color
  * @param[0]    color              displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_clear_screen(uint16_t color)
 {
     uint32_t i, cnt = 0;
 
     cnt = LCD_WIDTH * LCD_HEIGHT;
-
+#if 0
     lcd_set_cursor(0, 0);
     lcd_write_byte(0x22, LCD_CMD);
-
-    LCD_DC_SET();
-    LCD_CS_CLR();
+#endif
+    // LCD_DC_SET();
+    // LCD_CS_CLR();
+                    while(*(volatile uint16_t *)0x20043008 != 0xA55A)
+                    {
+                        ;
+                    }
+                    *(volatile uint16_t *)0x20043008 = 0x0000;
+                    *(volatile uint16_t *)0x20043004 = 0x55AA;
     for (i = 0; i < cnt; i ++)
     {
-        LCD_WORD_WRITE(color);
+        *(((uint16_t *)0x20010000)+i) = color;
+        // LCD_WR_DATA(color);
     }
-    LCD_CS_SET();
+                    *(volatile uint16_t *)0x20043004 = 0x0000;
+    // LCD_CS_SET();
 }
+#endif
 
 /**
  * @brief       lcd_draw_point     draw a point on the lcd with the color.
@@ -218,13 +266,17 @@ void lcd_clear_screen(uint16_t color)
  * @param[2]    color              displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_draw_point(uint16_t xpos, uint16_t ypos, uint16_t color)
 {
+	  #if 0
     lcd_set_cursor(xpos, ypos);
     lcd_write_byte(0x22, LCD_CMD);
-    lcd_write_word(color);
+	  #endif
+    //lcd_write_word(color);
+        *(((uint16_t *)0x20010000)+(ypos*LCD_HEIGHT+xpos)) = color;
 }
-
+#endif
 /**
  * @brief       lcd_clear_block     clear a part of lcd with color
  * @param[0]    xpos                x position
@@ -232,20 +284,25 @@ void lcd_draw_point(uint16_t xpos, uint16_t ypos, uint16_t color)
  * @param[2]    color               displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_clear_block(uint16_t xpos, uint16_t ypos, uint16_t color)
 {
     uint32_t i;
+	  #if 0
     lcd_set_cursor(xpos, ypos);
     lcd_write_byte(0x22, LCD_CMD);
+	  #endif
+	  LCD_Address_Set(xpos,ypos,xpos+240-1,ypos+32-1);
 
-    LCD_DC_SET();
-    LCD_CS_CLR();
+    // LCD_DC_SET();
+    // LCD_CS_CLR();
     for (i = 0; i < 240*32; i ++) {
-        LCD_WORD_WRITE(color);
+        //LCD_WORD_WRITE(color);
+        LCD_WR_DATA(color);
     }
-    LCD_CS_SET();
+    // LCD_CS_SET();
 }
-
+#endif
 /**
  * @brief       lcd_clear_block     display a char at the position on lcd
  * @param[0]    xpos                x position
@@ -255,6 +312,7 @@ void lcd_clear_block(uint16_t xpos, uint16_t ypos, uint16_t color)
  * @param[4]    color               displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_display_char(uint16_t xpos, uint16_t ypos, uint8_t chr, uint8_t font, uint16_t color) 
 {
     uint8_t i, j, temp;
@@ -287,7 +345,7 @@ void lcd_display_char(uint16_t xpos, uint16_t ypos, uint8_t chr, uint8_t font, u
         }
     }
 }
-
+#endif
 /**
  * @brief       lcd_display_num     display a number at the position on lcd.
  * @param[0]    xpos                x position
@@ -297,6 +355,7 @@ void lcd_display_char(uint16_t xpos, uint16_t ypos, uint8_t chr, uint8_t font, u
  * @param[4]    color               displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_display_num(uint16_t xpos, uint16_t ypos, uint32_t num, uint8_t len, uint8_t size, uint16_t color) 
 {
     uint8_t i, j = 0;
@@ -319,7 +378,7 @@ void lcd_display_num(uint16_t xpos, uint16_t ypos, uint32_t num, uint8_t len, ui
         lcd_display_char(xpos+(size/2)*i, ypos, '0'+temp, size, color);
     }
 }
-
+#endif
 /**
  * @brief       lcd_display_string     display a string at the position on lcd.
  * @param[0]    xpos                   x position
@@ -329,6 +388,7 @@ void lcd_display_num(uint16_t xpos, uint16_t ypos, uint32_t num, uint8_t len, ui
  * @param[4]    color                  displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_display_string(uint16_t xpos, uint16_t ypos, const uint8_t *string, uint8_t size, uint16_t color)  
 {
     while (*string != '\0')
@@ -348,7 +408,7 @@ void lcd_display_string(uint16_t xpos, uint16_t ypos, const uint8_t *string, uin
         string ++;
     }
 }
-
+#endif
 /**
  * @brief       LCD initialize
  * @param       NULL
@@ -357,6 +417,7 @@ void lcd_display_string(uint16_t xpos, uint16_t ypos, const uint8_t *string, uin
 uint8_t lcd_init(void)
 {
     lcd_hardware_init();
+#if 0
     //Driving ability Setting
     lcd_write_reg(0xEA,0x00);     // PTBA[15:8]
     lcd_write_reg(0xEB,0x20);     // PTBA[7:0]
@@ -445,6 +506,133 @@ uint8_t lcd_init(void)
 #endif
     lcd_clear_screen(LCD_COLOR_WHITE);  /* Clean up lcd screen */
     LCD_BKL_SET();                      /* Enable LCD backlight */
+#endif
+
+#if 1
+/* ILI9341 */
+#define delay_ms lcd_delayms
+// #define LCD_WR_REG(x) lcd_write_byte((x), LCD_CMD)
+// #define LCD_WR_DATA8(x) lcd_write_byte((x), LCD_DATA)
+	LCD_RST_CLR();//复位
+	delay_ms(100);
+	LCD_RST_SET();
+	delay_ms(100);
+	
+	LCD_BKL_SET();//打开背光
+  delay_ms(100);
+	
+    LCD_CS_CLR();
+	//************* Start Initial Sequence **********//
+	LCD_WR_REG(0x11); //Sleep out 
+	delay_ms(120);              //Delay 120ms 
+	//************* Start Initial Sequence **********// 
+	LCD_WR_REG(0xCF);  
+	LCD_WR_DATA8(0x00); 
+	LCD_WR_DATA8(0xD9); 
+	LCD_WR_DATA8(0X30); 
+	 
+	LCD_WR_REG(0xED);  
+	LCD_WR_DATA8(0x64); 
+	LCD_WR_DATA8(0x03); 
+	LCD_WR_DATA8(0X12); 
+	LCD_WR_DATA8(0X81); 
+	 
+	LCD_WR_REG(0xE8);  
+	LCD_WR_DATA8(0x85); 
+	LCD_WR_DATA8(0x10); 
+	LCD_WR_DATA8(0x78); 
+	 
+	LCD_WR_REG(0xCB);  
+	LCD_WR_DATA8(0x39); 
+	LCD_WR_DATA8(0x2C); 
+	LCD_WR_DATA8(0x00); 
+	LCD_WR_DATA8(0x34); 
+	LCD_WR_DATA8(0x02); 
+	 
+	LCD_WR_REG(0xF7);  
+	LCD_WR_DATA8(0x20); 
+	 
+	LCD_WR_REG(0xEA);  
+	LCD_WR_DATA8(0x00); 
+	LCD_WR_DATA8(0x00); 
+	 
+	LCD_WR_REG(0xC0);    //Power control 
+	LCD_WR_DATA8(0x21);   //VRH[5:0] 
+	 
+	LCD_WR_REG(0xC1);    //Power control 
+	LCD_WR_DATA8(0x12);   //SAP[2:0];BT[3:0] 
+	 
+	LCD_WR_REG(0xC5);    //VCM control 
+	LCD_WR_DATA8(0x32); 
+	LCD_WR_DATA8(0x3C); 
+	 
+	LCD_WR_REG(0xC7);    //VCM control2 
+	LCD_WR_DATA8(0XC1); 
+
+#if 0	 
+	LCD_WR_REG(0x36);    // Memory Access Control 
+	if(USE_HORIZONTAL==0)LCD_WR_DATA8(0x08);
+	else if(USE_HORIZONTAL==1)LCD_WR_DATA8(0xC8);
+	else if(USE_HORIZONTAL==2)LCD_WR_DATA8(0x78);
+	else LCD_WR_DATA8(0xA8);
+#endif
+	LCD_WR_REG(0x36);    // Memory Access Control 
+    LCD_WR_DATA8(0x08);
+
+	LCD_WR_REG(0x3A);   
+	LCD_WR_DATA8(0x55); 
+
+	LCD_WR_REG(0xB1);   
+	LCD_WR_DATA8(0x00);   
+	LCD_WR_DATA8(0x18); 
+	 
+	LCD_WR_REG(0xB6);    // Display Function Control 
+	LCD_WR_DATA8(0x0A); 
+	LCD_WR_DATA8(0xA2); 
+
+	 
+	 
+	LCD_WR_REG(0xF2);    // 3Gamma Function Disable 
+	LCD_WR_DATA8(0x00); 
+	 
+	LCD_WR_REG(0x26);    //Gamma curve selected 
+	LCD_WR_DATA8(0x01); 
+	 
+	LCD_WR_REG(0xE0);    //Set Gamma 
+	LCD_WR_DATA8(0x0F); 
+	LCD_WR_DATA8(0x20); 
+	LCD_WR_DATA8(0x1E); 
+	LCD_WR_DATA8(0x09); 
+	LCD_WR_DATA8(0x12); 
+	LCD_WR_DATA8(0x0B); 
+	LCD_WR_DATA8(0x50); 
+	LCD_WR_DATA8(0XBA); 
+	LCD_WR_DATA8(0x44); 
+	LCD_WR_DATA8(0x09); 
+	LCD_WR_DATA8(0x14); 
+	LCD_WR_DATA8(0x05); 
+	LCD_WR_DATA8(0x23); 
+	LCD_WR_DATA8(0x21); 
+	LCD_WR_DATA8(0x00); 
+	 
+	LCD_WR_REG(0XE1);    //Set Gamma 
+	LCD_WR_DATA8(0x00); 
+	LCD_WR_DATA8(0x19); 
+	LCD_WR_DATA8(0x19); 
+	LCD_WR_DATA8(0x00); 
+	LCD_WR_DATA8(0x12); 
+	LCD_WR_DATA8(0x07); 
+	LCD_WR_DATA8(0x2D); 
+	LCD_WR_DATA8(0x28); 
+	LCD_WR_DATA8(0x3F); 
+	LCD_WR_DATA8(0x02); 
+	LCD_WR_DATA8(0x0A); 
+	LCD_WR_DATA8(0x08); 
+	LCD_WR_DATA8(0x25); 
+	LCD_WR_DATA8(0x2D); 
+	LCD_WR_DATA8(0x0F); 
+	LCD_WR_REG(0x29);    //Display on 
+#endif
 
     return true;
 }
@@ -454,6 +642,7 @@ uint8_t lcd_init(void)
  * @param       color -- display color
  * @retval      NULL
 */
+#if 0
 void lcd_refresh_init(uint16_t color)
 {
     uint32_t i;
@@ -462,43 +651,51 @@ void lcd_refresh_init(uint16_t color)
         g_LCDDispBuf[i] = color;
     }
 }
-
+#endif
 /**
  * @brief       lcd_refresh_icon    refresh lcd display colors
  * @param[0]    xpos                x position
  * @param[1]    ypos                y position
  * @ret         NULL
 */
+#if 0
 void lcd_refresh_icon(uint16_t x, uint16_t y)
 {
     uint32_t i;
+	  #if 0
     lcd_set_cursor(x, y);
     lcd_write_byte(0x22, LCD_CMD);
-    LCD_DC_SET();
-    LCD_CS_CLR();
+	  #endif
+	  LCD_Address_Set(x,y,x+240-1,y+96-1);
+    // LCD_DC_SET();
+    // LCD_CS_CLR();
     for (i = 0; i < 240*96; i ++) {
-      lcd_write_word(g_LCDDispBuf[i]);
+    //   lcd_write_word(g_LCDDispBuf[i]);
+    LCD_WR_DATA(g_LCDDispBuf[i]);
     }
-    LCD_CS_SET();
+    // LCD_CS_SET();
 }
-
+#endif
+#if 0
 volatile uint16_t*  g_LCDImageBuf;
 
 
 void lcd_refresh(void)
 {
-    uint32_t i, wCount = 76800;
-
+    uint32_t i, wCount = LCD_WIDTH * LCD_HEIGHT;
+#if 0
     lcd_set_cursor(0, 0);
     lcd_write_byte(0x22, LCD_CMD);
-
+#endif
+	  LCD_Address_Set(0,0,LCD_WIDTH-1,LCD_HEIGHT-1);
     g_LCDImageBuf = (uint16_t *)0x20010000;
-    LCD_DC_SET();
-    LCD_CS_CLR();
+    // LCD_DC_SET();
+    // LCD_CS_CLR();
     for (i = 0; i < wCount; i ++) {
-        lcd_write_word(g_LCDImageBuf[i]);
+        //lcd_write_word(g_LCDImageBuf[i]);
+    LCD_WR_DATA(g_LCDImageBuf[i]);
     }
-    LCD_CS_SET();
+    // LCD_CS_SET();
 }
-
+#endif
 /* File End */

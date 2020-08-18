@@ -1,4 +1,4 @@
-Component: ARM Compiler 6.12 Tool: armlink [5d624300]
+Component: ARM Compiler 6.14 Tool: armlink [5db06800]
 
 ==============================================================================
 
@@ -123,13 +123,13 @@ Section Cross References
     system_lpc55s69_cm33_core1.o(.ARM.exidx.text.SystemInit) refers to system_lpc55s69_cm33_core1.o(.text.SystemInit) for [Anonymous Symbol]
     system_lpc55s69_cm33_core1.o(.ARM.exidx.text.SystemInitHook) refers to system_lpc55s69_cm33_core1.o(.text.SystemInitHook) for [Anonymous Symbol]
     system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate) refers to uldiv.o(.text) for __aeabi_uldivmod
-    system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate) refers to system_lpc55s69_cm33_core1.o(.data.SystemCoreClock) for SystemCoreClock
     system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate) refers to ffltui.o(.text) for __aeabi_ui2f
     system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate) refers to fmul.o(.text) for __aeabi_fmul
     system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate) refers to fadd.o(.text) for __aeabi_fadd
     system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate) refers to fcmpeq.o(.text) for __aeabi_fcmpeq
     system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate) refers to fdiv.o(.text) for __aeabi_fdiv
     system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate) refers to ffixui.o(.text) for __aeabi_f2uiz
+    system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate) refers to system_lpc55s69_cm33_core1.o(.data.SystemCoreClock) for SystemCoreClock
     system_lpc55s69_cm33_core1.o(.ARM.exidx.text.SystemCoreClockUpdate) refers to system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate) for [Anonymous Symbol]
     fsl_spi.o(.ARM.exidx.text.SPI_GetInstance) refers to fsl_spi.o(.text.SPI_GetInstance) for [Anonymous Symbol]
     fsl_spi.o(.text.SPI_SetDummyData) refers to fsl_spi.o(.bss..L_MergedGlobals) for .L_MergedGlobals
@@ -153,8 +153,8 @@ Section Cross References
     fsl_spi.o(.text.SPI_WriteData) refers to fsl_spi.o(.bss..L_MergedGlobals) for .L_MergedGlobals
     fsl_spi.o(.ARM.exidx.text.SPI_WriteData) refers to fsl_spi.o(.text.SPI_WriteData) for [Anonymous Symbol]
     fsl_spi.o(.text.SPI_MasterTransferCreateHandle) refers to memseta.o(.text) for memset
-    fsl_spi.o(.text.SPI_MasterTransferCreateHandle) refers to fsl_spi.o(.text.SPI_SlaveTransferHandleIRQ) for SPI_SlaveTransferHandleIRQ
     fsl_spi.o(.text.SPI_MasterTransferCreateHandle) refers to fsl_spi.o(.text.SPI_MasterTransferHandleIRQ) for SPI_MasterTransferHandleIRQ
+    fsl_spi.o(.text.SPI_MasterTransferCreateHandle) refers to fsl_spi.o(.text.SPI_SlaveTransferHandleIRQ) for SPI_SlaveTransferHandleIRQ
     fsl_spi.o(.text.SPI_MasterTransferCreateHandle) refers to fsl_flexcomm.o(.text.FLEXCOMM_SetIRQHandler) for FLEXCOMM_SetIRQHandler
     fsl_spi.o(.text.SPI_MasterTransferCreateHandle) refers to fsl_spi.o(.bss..L_MergedGlobals) for .L_MergedGlobals
     fsl_spi.o(.ARM.exidx.text.SPI_MasterTransferCreateHandle) refers to fsl_spi.o(.text.SPI_MasterTransferCreateHandle) for [Anonymous Symbol]
@@ -584,32 +584,17 @@ Section Cross References
     main_core1.o(.ARM.exidx.text.xpt2046_read_xy) refers to main_core1.o(.text.xpt2046_read_xy) for [Anonymous Symbol]
     main_core1.o(.text.xpt2046_twice_read_xy) refers to main_core1.o(.text.xpt2046_read_average) for xpt2046_read_average
     main_core1.o(.ARM.exidx.text.xpt2046_twice_read_xy) refers to main_core1.o(.text.xpt2046_twice_read_xy) for [Anonymous Symbol]
-    main_core1.o(.text.xpt2046_init) refers to fsl_inputmux.o(.text.INPUTMUX_Init) for INPUTMUX_Init
-    main_core1.o(.text.xpt2046_init) refers to fsl_inputmux.o(.text.INPUTMUX_AttachSignal) for INPUTMUX_AttachSignal
-    main_core1.o(.text.xpt2046_init) refers to fsl_inputmux.o(.text.INPUTMUX_Deinit) for INPUTMUX_Deinit
-    main_core1.o(.text.xpt2046_init) refers to fsl_pint.o(.text.PINT_Init) for PINT_Init
-    main_core1.o(.text.xpt2046_init) refers to main_core1.o(.text.pint_intr_callback) for pint_intr_callback
-    main_core1.o(.text.xpt2046_init) refers to fsl_pint.o(.text.PINT_PinInterruptConfig) for PINT_PinInterruptConfig
-    main_core1.o(.text.xpt2046_init) refers to fsl_pint.o(.text.PINT_EnableCallbackByIndex) for PINT_EnableCallbackByIndex
     main_core1.o(.text.xpt2046_init) refers to main_core1.o(.bss..L_MergedGlobals) for .L_MergedGlobals
     main_core1.o(.text.xpt2046_init) refers to main_core1.o(.text.xpt2046_read_average) for xpt2046_read_average
     main_core1.o(.ARM.exidx.text.xpt2046_init) refers to main_core1.o(.text.xpt2046_init) for [Anonymous Symbol]
     main_core1.o(.text.main) refers to mcmgr.o(.text.MCMGR_Init) for MCMGR_Init
     main_core1.o(.text.main) refers to mcmgr.o(.text.MCMGR_GetStartupData) for MCMGR_GetStartupData
     main_core1.o(.text.main) refers to fsl_spi.o(.text.SPI_MasterSetBaud) for SPI_MasterSetBaud
-    main_core1.o(.text.main) refers to fsl_inputmux.o(.text.INPUTMUX_Init) for INPUTMUX_Init
-    main_core1.o(.text.main) refers to fsl_inputmux.o(.text.INPUTMUX_AttachSignal) for INPUTMUX_AttachSignal
-    main_core1.o(.text.main) refers to fsl_inputmux.o(.text.INPUTMUX_Deinit) for INPUTMUX_Deinit
-    main_core1.o(.text.main) refers to fsl_pint.o(.text.PINT_Init) for PINT_Init
-    main_core1.o(.text.main) refers to main_core1.o(.text.pint_intr_callback) for pint_intr_callback
-    main_core1.o(.text.main) refers to fsl_pint.o(.text.PINT_PinInterruptConfig) for PINT_PinInterruptConfig
-    main_core1.o(.text.main) refers to fsl_pint.o(.text.PINT_EnableCallbackByIndex) for PINT_EnableCallbackByIndex
     main_core1.o(.text.main) refers to main_core1.o(.bss..L_MergedGlobals) for .L_MergedGlobals
     main_core1.o(.text.main) refers to main_core1.o(.text.xpt2046_read_average) for xpt2046_read_average
-    main_core1.o(.text.main) refers to lcd.o(.text.lcd_set_cursor) for lcd_set_cursor
-    main_core1.o(.text.main) refers to lcd.o(.text.lcd_write_byte) for lcd_write_byte
-    main_core1.o(.text.main) refers to mcmgr.o(.text.MCMGR_TriggerEvent) for MCMGR_TriggerEvent
     main_core1.o(.text.main) refers to lcd.o(.text.lcd_refresh) for lcd_refresh
+    main_core1.o(.text.main) refers to main_core1.o(.text.xpt2046_twice_read_xy) for xpt2046_twice_read_xy
+    main_core1.o(.text.main) refers to mcmgr.o(.text.MCMGR_TriggerEvent) for MCMGR_TriggerEvent
     main_core1.o(.ARM.exidx.text.main) refers to main_core1.o(.text.main) for [Anonymous Symbol]
     startup_lpc55s69_cm33_core1.o(.text) refers to system_lpc55s69_cm33_core1.o(.text.SystemInit) for SystemInit
     startup_lpc55s69_cm33_core1.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
@@ -701,40 +686,11 @@ Section Cross References
     fsl_str.o(.text.StrFormatPrintf) refers to strlen.o(.text) for strlen
     fsl_str.o(.ARM.exidx.text.StrFormatPrintf) refers to fsl_str.o(.text.StrFormatPrintf) for [Anonymous Symbol]
     fsl_str.o(.ARM.exidx.text.StrFormatScanf) refers to fsl_str.o(.text.StrFormatScanf) for [Anonymous Symbol]
-    lcd.o(.ARM.exidx.text.lcd_write_byte) refers to lcd.o(.text.lcd_write_byte) for [Anonymous Symbol]
-    lcd.o(.ARM.exidx.text.lcd_write_word) refers to lcd.o(.text.lcd_write_word) for [Anonymous Symbol]
-    lcd.o(.ARM.exidx.text.lcd_write_reg) refers to lcd.o(.text.lcd_write_reg) for [Anonymous Symbol]
-    lcd.o(.text.lcd_hardware_init) refers to fsl_clock.o(.text.CLOCK_AttachClk) for CLOCK_AttachClk
-    lcd.o(.text.lcd_hardware_init) refers to fsl_reset.o(.text.RESET_PeripheralReset) for RESET_PeripheralReset
-    lcd.o(.text.lcd_hardware_init) refers to fsl_spi.o(.text.SPI_MasterGetDefaultConfig) for SPI_MasterGetDefaultConfig
-    lcd.o(.text.lcd_hardware_init) refers to fsl_clock.o(.text.CLOCK_GetHsLspiClkFreq) for CLOCK_GetHsLspiClkFreq
-    lcd.o(.text.lcd_hardware_init) refers to fsl_spi.o(.text.SPI_MasterInit) for SPI_MasterInit
-    lcd.o(.text.lcd_hardware_init) refers to fsl_gpio.o(.text.GPIO_PinInit) for GPIO_PinInit
-    lcd.o(.ARM.exidx.text.lcd_hardware_init) refers to lcd.o(.text.lcd_hardware_init) for [Anonymous Symbol]
-    lcd.o(.ARM.exidx.text.lcd_set_cursor) refers to lcd.o(.text.lcd_set_cursor) for [Anonymous Symbol]
-    lcd.o(.text.lcd_clear_screen) refers to lcd.o(.text.lcd_set_cursor) for lcd_set_cursor
-    lcd.o(.ARM.exidx.text.lcd_clear_screen) refers to lcd.o(.text.lcd_clear_screen) for [Anonymous Symbol]
-    lcd.o(.text.lcd_draw_point) refers to lcd.o(.text.lcd_set_cursor) for lcd_set_cursor
-    lcd.o(.ARM.exidx.text.lcd_draw_point) refers to lcd.o(.text.lcd_draw_point) for [Anonymous Symbol]
-    lcd.o(.text.lcd_clear_block) refers to lcd.o(.text.lcd_set_cursor) for lcd_set_cursor
-    lcd.o(.ARM.exidx.text.lcd_clear_block) refers to lcd.o(.text.lcd_clear_block) for [Anonymous Symbol]
-    lcd.o(.text.lcd_display_char) refers to lcd_fonts.o(.rodata.Font1206) for Font1206
-    lcd.o(.text.lcd_display_char) refers to lcd.o(.text.lcd_set_cursor) for lcd_set_cursor
-    lcd.o(.text.lcd_display_char) refers to lcd_fonts.o(.rodata.Font1608) for Font1608
-    lcd.o(.ARM.exidx.text.lcd_display_char) refers to lcd.o(.text.lcd_display_char) for [Anonymous Symbol]
-    lcd.o(.text.lcd_display_num) refers to lcd.o(.text.lcd_display_char) for lcd_display_char
-    lcd.o(.ARM.exidx.text.lcd_display_num) refers to lcd.o(.text.lcd_display_num) for [Anonymous Symbol]
-    lcd.o(.text.lcd_display_string) refers to lcd.o(.text.lcd_set_cursor) for lcd_set_cursor
-    lcd.o(.text.lcd_display_string) refers to lcd.o(.text.lcd_display_char) for lcd_display_char
-    lcd.o(.ARM.exidx.text.lcd_display_string) refers to lcd.o(.text.lcd_display_string) for [Anonymous Symbol]
-    lcd.o(.text.lcd_init) refers to lcd.o(.bss.g_LCDDelayMsCnt) for g_LCDDelayMsCnt
-    lcd.o(.text.lcd_init) refers to lcd.o(.text.lcd_set_cursor) for lcd_set_cursor
-    lcd.o(.ARM.exidx.text.lcd_init) refers to lcd.o(.text.lcd_init) for [Anonymous Symbol]
-    lcd.o(.text.lcd_refresh_init) refers to lcd.o(.bss.g_LCDDispBuf) for g_LCDDispBuf
-    lcd.o(.ARM.exidx.text.lcd_refresh_init) refers to lcd.o(.text.lcd_refresh_init) for [Anonymous Symbol]
-    lcd.o(.text.lcd_refresh_icon) refers to main_core1.o(.text.delay) for delay
-    lcd.o(.text.lcd_refresh_icon) refers to lcd.o(.bss.g_LCDDispBuf) for g_LCDDispBuf
-    lcd.o(.ARM.exidx.text.lcd_refresh_icon) refers to lcd.o(.text.lcd_refresh_icon) for [Anonymous Symbol]
+    lcd.o(.ARM.exidx.text.LCD_WR_DATA8) refers to lcd.o(.text.LCD_WR_DATA8) for [Anonymous Symbol]
+    lcd.o(.ARM.exidx.text.LCD_WR_DATA) refers to lcd.o(.text.LCD_WR_DATA) for [Anonymous Symbol]
+    lcd.o(.ARM.exidx.text.LCD_WR_REG) refers to lcd.o(.text.LCD_WR_REG) for [Anonymous Symbol]
+    lcd.o(.ARM.exidx.text.LCD_Address_Set) refers to lcd.o(.text.LCD_Address_Set) for [Anonymous Symbol]
+    lcd.o(.text.lcd_refresh) refers to lcd.o(.text.LCD_Address_Set) for LCD_Address_Set
     lcd.o(.text.lcd_refresh) refers to lcd.o(.bss.g_LCDImageBuf) for g_LCDImageBuf
     lcd.o(.ARM.exidx.text.lcd_refresh) refers to lcd.o(.text.lcd_refresh) for [Anonymous Symbol]
     fsl_power_lib.o(.ARM.exidx.text.POWER_CycleCpuAndFlash) refers to fsl_power_lib.o(.text.POWER_CycleCpuAndFlash) for [Anonymous Symbol]
@@ -871,13 +827,13 @@ Removing Unused input sections from the image.
     Removing serial_manager.o(.ARM.exidx.text.SerialManager_OpenWriteHandle), (8 bytes).
     Removing serial_manager.o(.text.SerialManager_CloseWriteHandle), (40 bytes).
     Removing serial_manager.o(.ARM.exidx.text.SerialManager_CloseWriteHandle), (8 bytes).
-    Removing serial_manager.o(.text.SerialManager_OpenReadHandle), (56 bytes).
+    Removing serial_manager.o(.text.SerialManager_OpenReadHandle), (54 bytes).
     Removing serial_manager.o(.ARM.exidx.text.SerialManager_OpenReadHandle), (8 bytes).
     Removing serial_manager.o(.text.SerialManager_CloseReadHandle), (38 bytes).
     Removing serial_manager.o(.ARM.exidx.text.SerialManager_CloseReadHandle), (8 bytes).
-    Removing serial_manager.o(.text.SerialManager_WriteBlocking), (24 bytes).
+    Removing serial_manager.o(.text.SerialManager_WriteBlocking), (22 bytes).
     Removing serial_manager.o(.ARM.exidx.text.SerialManager_WriteBlocking), (8 bytes).
-    Removing serial_manager.o(.text.SerialManager_ReadBlocking), (24 bytes).
+    Removing serial_manager.o(.text.SerialManager_ReadBlocking), (22 bytes).
     Removing serial_manager.o(.ARM.exidx.text.SerialManager_ReadBlocking), (8 bytes).
     Removing serial_manager.o(.text.SerialManager_EnterLowpower), (18 bytes).
     Removing serial_manager.o(.ARM.exidx.text.SerialManager_EnterLowpower), (8 bytes).
@@ -888,11 +844,11 @@ Removing Unused input sections from the image.
     Removing generic_list.o(.ARM.exidx.text.LIST_Init), (8 bytes).
     Removing generic_list.o(.text.LIST_GetList), (4 bytes).
     Removing generic_list.o(.ARM.exidx.text.LIST_GetList), (8 bytes).
-    Removing generic_list.o(.text.LIST_AddTail), (130 bytes).
+    Removing generic_list.o(.text.LIST_AddTail), (120 bytes).
     Removing generic_list.o(.ARM.exidx.text.LIST_AddTail), (8 bytes).
-    Removing generic_list.o(.text.LIST_AddHead), (130 bytes).
+    Removing generic_list.o(.text.LIST_AddHead), (124 bytes).
     Removing generic_list.o(.ARM.exidx.text.LIST_AddHead), (8 bytes).
-    Removing generic_list.o(.text.LIST_RemoveHead), (66 bytes).
+    Removing generic_list.o(.text.LIST_RemoveHead), (62 bytes).
     Removing generic_list.o(.ARM.exidx.text.LIST_RemoveHead), (8 bytes).
     Removing generic_list.o(.text.LIST_GetHead), (4 bytes).
     Removing generic_list.o(.ARM.exidx.text.LIST_GetHead), (8 bytes).
@@ -900,7 +856,7 @@ Removing Unused input sections from the image.
     Removing generic_list.o(.ARM.exidx.text.LIST_GetNext), (8 bytes).
     Removing generic_list.o(.text.LIST_GetPrev), (4 bytes).
     Removing generic_list.o(.ARM.exidx.text.LIST_GetPrev), (8 bytes).
-    Removing generic_list.o(.text.LIST_RemoveElement), (82 bytes).
+    Removing generic_list.o(.text.LIST_RemoveElement), (80 bytes).
     Removing generic_list.o(.ARM.exidx.text.LIST_RemoveElement), (8 bytes).
     Removing generic_list.o(.text.LIST_AddPrevElement), (146 bytes).
     Removing generic_list.o(.ARM.exidx.text.LIST_AddPrevElement), (8 bytes).
@@ -926,7 +882,7 @@ Removing Unused input sections from the image.
     Removing system_lpc55s69_cm33_core1.o(.ARM.exidx.text.SystemInit), (8 bytes).
     Removing system_lpc55s69_cm33_core1.o(.text.SystemInitHook), (2 bytes).
     Removing system_lpc55s69_cm33_core1.o(.ARM.exidx.text.SystemInitHook), (8 bytes).
-    Removing system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate), (920 bytes).
+    Removing system_lpc55s69_cm33_core1.o(.text.SystemCoreClockUpdate), (840 bytes).
     Removing system_lpc55s69_cm33_core1.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
     Removing system_lpc55s69_cm33_core1.o(.data.SystemCoreClock), (4 bytes).
     Removing fsl_spi.o(.text), (0 bytes).
@@ -938,12 +894,12 @@ Removing Unused input sections from the image.
     Removing fsl_spi.o(.ARM.exidx.text.SPI_GetConfig), (8 bytes).
     Removing fsl_spi.o(.text.SPI_MasterGetDefaultConfig), (44 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_MasterGetDefaultConfig), (8 bytes).
-    Removing fsl_spi.o(.text.SPI_MasterInit), (720 bytes).
+    Removing fsl_spi.o(.text.SPI_MasterInit), (700 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_MasterInit), (8 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_MasterSetBaud), (8 bytes).
     Removing fsl_spi.o(.text.SPI_SlaveGetDefaultConfig), (28 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_SlaveGetDefaultConfig), (8 bytes).
-    Removing fsl_spi.o(.text.SPI_SlaveInit), (576 bytes).
+    Removing fsl_spi.o(.text.SPI_SlaveInit), (556 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_SlaveInit), (8 bytes).
     Removing fsl_spi.o(.text.SPI_Deinit), (32 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_Deinit), (8 bytes).
@@ -955,17 +911,17 @@ Removing Unused input sections from the image.
     Removing fsl_spi.o(.ARM.exidx.text.SPI_WriteData), (8 bytes).
     Removing fsl_spi.o(.text.SPI_MasterTransferCreateHandle), (332 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_MasterTransferCreateHandle), (8 bytes).
-    Removing fsl_spi.o(.text.SPI_MasterTransferHandleIRQ), (728 bytes).
+    Removing fsl_spi.o(.text.SPI_MasterTransferHandleIRQ), (740 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_MasterTransferHandleIRQ), (8 bytes).
     Removing fsl_spi.o(.text.SPI_SlaveTransferHandleIRQ), (4 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_SlaveTransferHandleIRQ), (8 bytes).
-    Removing fsl_spi.o(.text.SPI_MasterTransferBlocking), (830 bytes).
+    Removing fsl_spi.o(.text.SPI_MasterTransferBlocking), (760 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_MasterTransferBlocking), (8 bytes).
-    Removing fsl_spi.o(.text.SPI_MasterTransferNonBlocking), (176 bytes).
+    Removing fsl_spi.o(.text.SPI_MasterTransferNonBlocking), (170 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_MasterTransferNonBlocking), (8 bytes).
-    Removing fsl_spi.o(.text.SPI_MasterHalfDuplexTransferBlocking), (132 bytes).
+    Removing fsl_spi.o(.text.SPI_MasterHalfDuplexTransferBlocking), (130 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_MasterHalfDuplexTransferBlocking), (8 bytes).
-    Removing fsl_spi.o(.text.SPI_MasterHalfDuplexTransferNonBlocking), (244 bytes).
+    Removing fsl_spi.o(.text.SPI_MasterHalfDuplexTransferNonBlocking), (242 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_MasterHalfDuplexTransferNonBlocking), (8 bytes).
     Removing fsl_spi.o(.text.SPI_MasterTransferGetCount), (36 bytes).
     Removing fsl_spi.o(.ARM.exidx.text.SPI_MasterTransferGetCount), (8 bytes).
@@ -979,9 +935,9 @@ Removing Unused input sections from the image.
     Removing fsl_spi_dma.o(.ARM.exidx.text.SPI_TxDMACallback), (8 bytes).
     Removing fsl_spi_dma.o(.text.SPI_RxDMACallback), (42 bytes).
     Removing fsl_spi_dma.o(.ARM.exidx.text.SPI_RxDMACallback), (8 bytes).
-    Removing fsl_spi_dma.o(.text.SPI_MasterTransferDMA), (880 bytes).
+    Removing fsl_spi_dma.o(.text.SPI_MasterTransferDMA), (884 bytes).
     Removing fsl_spi_dma.o(.ARM.exidx.text.SPI_MasterTransferDMA), (8 bytes).
-    Removing fsl_spi_dma.o(.text.SPI_MasterHalfDuplexTransferDMA), (136 bytes).
+    Removing fsl_spi_dma.o(.text.SPI_MasterHalfDuplexTransferDMA), (134 bytes).
     Removing fsl_spi_dma.o(.ARM.exidx.text.SPI_MasterHalfDuplexTransferDMA), (8 bytes).
     Removing fsl_spi_dma.o(.text.SPI_MasterTransferAbortDMA), (26 bytes).
     Removing fsl_spi_dma.o(.ARM.exidx.text.SPI_MasterTransferAbortDMA), (8 bytes).
@@ -991,17 +947,17 @@ Removing Unused input sections from the image.
     Removing fsl_spi_dma.o(.bss.s_spi_descriptor_table), (144 bytes).
     Removing fsl_spi_dma.o(.bss..L_MergedGlobals), (112 bytes).
     Removing fsl_clock.o(.text), (0 bytes).
-    Removing fsl_clock.o(.text.CLOCK_AttachClk), (132 bytes).
+    Removing fsl_clock.o(.text.CLOCK_AttachClk), (124 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_AttachClk), (8 bytes).
-    Removing fsl_clock.o(.text.CLOCK_GetClockAttachId), (118 bytes).
+    Removing fsl_clock.o(.text.CLOCK_GetClockAttachId), (116 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_GetClockAttachId), (8 bytes).
     Removing fsl_clock.o(.text.CLOCK_SetClkDiv), (36 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetClkDiv), (8 bytes).
     Removing fsl_clock.o(.text.CLOCK_SetRtc1khzClkDiv), (26 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetRtc1khzClkDiv), (8 bytes).
-    Removing fsl_clock.o(.text.CLOCK_SetRtc1hzClkDiv), (42 bytes).
+    Removing fsl_clock.o(.text.CLOCK_SetRtc1hzClkDiv), (40 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetRtc1hzClkDiv), (8 bytes).
-    Removing fsl_clock.o(.text.CLOCK_SetupFROClocking), (108 bytes).
+    Removing fsl_clock.o(.text.CLOCK_SetupFROClocking), (102 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetupFROClocking), (8 bytes).
     Removing fsl_clock.o(.text.CLOCK_SetFLASHAccessCyclesForFreq), (290 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetFLASHAccessCyclesForFreq), (8 bytes).
@@ -1065,13 +1021,13 @@ Removing Unused input sections from the image.
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_GetPLL0InClockRate), (8 bytes).
     Removing fsl_clock.o(.text.CLOCK_GetPLL1InClockRate), (132 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_GetPLL1InClockRate), (8 bytes).
-    Removing fsl_clock.o(.text.CLOCK_GetPLL0OutFromSetup), (374 bytes).
+    Removing fsl_clock.o(.text.CLOCK_GetPLL0OutFromSetup), (376 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_GetPLL0OutFromSetup), (8 bytes).
     Removing fsl_clock.o(.text.CLOCK_SetStoredPLL0ClockRate), (12 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetStoredPLL0ClockRate), (8 bytes).
     Removing fsl_clock.o(.text.CLOCK_GetPLL0OutClockRate), (50 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_GetPLL0OutClockRate), (8 bytes).
-    Removing fsl_clock.o(.text.CLOCK_SetupPLL0Data), (926 bytes).
+    Removing fsl_clock.o(.text.CLOCK_SetupPLL0Data), (932 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetupPLL0Data), (8 bytes).
     Removing fsl_clock.o(.text.CLOCK_SetupPLL0Prec), (384 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetupPLL0Prec), (8 bytes).
@@ -1081,9 +1037,9 @@ Removing Unused input sections from the image.
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetPLL1Freq), (8 bytes).
     Removing fsl_clock.o(.text.CLOCK_SetupPLL0Mult), (190 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetupPLL0Mult), (8 bytes).
-    Removing fsl_clock.o(.text.CLOCK_EnableUsbfs0DeviceClock), (264 bytes).
+    Removing fsl_clock.o(.text.CLOCK_EnableUsbfs0DeviceClock), (246 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_EnableUsbfs0DeviceClock), (8 bytes).
-    Removing fsl_clock.o(.text.CLOCK_EnableUsbfs0HostClock), (306 bytes).
+    Removing fsl_clock.o(.text.CLOCK_EnableUsbfs0HostClock), (302 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_EnableUsbfs0HostClock), (8 bytes).
     Removing fsl_clock.o(.text.CLOCK_EnableUsbhs0PhyPllClock), (160 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_EnableUsbhs0PhyPllClock), (8 bytes).
@@ -1149,23 +1105,23 @@ Removing Unused input sections from the image.
     Removing fsl_usart.o(.ARM.exidx.text.USART_Deinit), (8 bytes).
     Removing fsl_usart.o(.text.USART_GetDefaultConfig), (32 bytes).
     Removing fsl_usart.o(.ARM.exidx.text.USART_GetDefaultConfig), (8 bytes).
-    Removing fsl_usart.o(.text.USART_WriteBlocking), (368 bytes).
+    Removing fsl_usart.o(.text.USART_WriteBlocking), (372 bytes).
     Removing fsl_usart.o(.ARM.exidx.text.USART_WriteBlocking), (8 bytes).
-    Removing fsl_usart.o(.text.USART_ReadBlocking), (186 bytes).
+    Removing fsl_usart.o(.text.USART_ReadBlocking), (178 bytes).
     Removing fsl_usart.o(.ARM.exidx.text.USART_ReadBlocking), (8 bytes).
     Removing fsl_usart.o(.text.USART_TransferCreateHandle), (180 bytes).
     Removing fsl_usart.o(.ARM.exidx.text.USART_TransferCreateHandle), (8 bytes).
-    Removing fsl_usart.o(.text.USART_TransferHandleIRQ), (582 bytes).
+    Removing fsl_usart.o(.text.USART_TransferHandleIRQ), (550 bytes).
     Removing fsl_usart.o(.ARM.exidx.text.USART_TransferHandleIRQ), (8 bytes).
-    Removing fsl_usart.o(.text.USART_TransferSendNonBlocking), (88 bytes).
+    Removing fsl_usart.o(.text.USART_TransferSendNonBlocking), (82 bytes).
     Removing fsl_usart.o(.ARM.exidx.text.USART_TransferSendNonBlocking), (8 bytes).
     Removing fsl_usart.o(.text.USART_TransferAbortSend), (28 bytes).
     Removing fsl_usart.o(.ARM.exidx.text.USART_TransferAbortSend), (8 bytes).
     Removing fsl_usart.o(.text.USART_TransferGetSendCount), (24 bytes).
     Removing fsl_usart.o(.ARM.exidx.text.USART_TransferGetSendCount), (8 bytes).
-    Removing fsl_usart.o(.text.USART_TransferReceiveNonBlocking), (514 bytes).
+    Removing fsl_usart.o(.text.USART_TransferReceiveNonBlocking), (228 bytes).
     Removing fsl_usart.o(.ARM.exidx.text.USART_TransferReceiveNonBlocking), (8 bytes).
-    Removing fsl_usart.o(.text.USART_TransferAbortReceive), (36 bytes).
+    Removing fsl_usart.o(.text.USART_TransferAbortReceive), (34 bytes).
     Removing fsl_usart.o(.ARM.exidx.text.USART_TransferAbortReceive), (8 bytes).
     Removing fsl_usart.o(.text.USART_TransferGetReceiveCount), (24 bytes).
     Removing fsl_usart.o(.ARM.exidx.text.USART_TransferGetReceiveCount), (8 bytes).
@@ -1177,13 +1133,13 @@ Removing Unused input sections from the image.
     Removing fsl_dma.o(.ARM.exidx.text.DMA_Deinit), (8 bytes).
     Removing fsl_dma.o(.text.DMA_ConfigureChannelTrigger), (36 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_ConfigureChannelTrigger), (8 bytes).
-    Removing fsl_dma.o(.text.DMA_GetRemainingBytes), (66 bytes).
+    Removing fsl_dma.o(.text.DMA_GetRemainingBytes), (60 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_GetRemainingBytes), (8 bytes).
-    Removing fsl_dma.o(.text.DMA_SetupDescriptor), (110 bytes).
+    Removing fsl_dma.o(.text.DMA_SetupDescriptor), (112 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_SetupDescriptor), (8 bytes).
     Removing fsl_dma.o(.text.DMA_SetupChannelDescriptor), (224 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_SetupChannelDescriptor), (8 bytes).
-    Removing fsl_dma.o(.text.DMA_CreateDescriptor), (262 bytes).
+    Removing fsl_dma.o(.text.DMA_CreateDescriptor), (220 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_CreateDescriptor), (8 bytes).
     Removing fsl_dma.o(.text.DMA_AbortTransfer), (82 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_AbortTransfer), (8 bytes).
@@ -1193,7 +1149,7 @@ Removing Unused input sections from the image.
     Removing fsl_dma.o(.ARM.exidx.text.DMA_SetCallback), (8 bytes).
     Removing fsl_dma.o(.text.DMA_PrepareTransfer), (114 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_PrepareTransfer), (8 bytes).
-    Removing fsl_dma.o(.text.DMA_SetChannelConfig), (70 bytes).
+    Removing fsl_dma.o(.text.DMA_SetChannelConfig), (64 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_SetChannelConfig), (8 bytes).
     Removing fsl_dma.o(.text.DMA_PrepareChannelTransfer), (52 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_PrepareChannelTransfer), (8 bytes).
@@ -1203,11 +1159,11 @@ Removing Unused input sections from the image.
     Removing fsl_dma.o(.ARM.exidx.text.DMA_InstallDescriptorMemory), (8 bytes).
     Removing fsl_dma.o(.text.DMA_SubmitChannelTransferParameter), (176 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_SubmitChannelTransferParameter), (8 bytes).
-    Removing fsl_dma.o(.text.DMA_SubmitChannelDescriptor), (82 bytes).
+    Removing fsl_dma.o(.text.DMA_SubmitChannelDescriptor), (84 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_SubmitChannelDescriptor), (8 bytes).
-    Removing fsl_dma.o(.text.DMA_SubmitChannelTransfer), (198 bytes).
+    Removing fsl_dma.o(.text.DMA_SubmitChannelTransfer), (202 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_SubmitChannelTransfer), (8 bytes).
-    Removing fsl_dma.o(.text.DMA_SubmitTransfer), (140 bytes).
+    Removing fsl_dma.o(.text.DMA_SubmitTransfer), (138 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_SubmitTransfer), (8 bytes).
     Removing fsl_dma.o(.text.DMA_StartTransfer), (60 bytes).
     Removing fsl_dma.o(.ARM.exidx.text.DMA_StartTransfer), (8 bytes).
@@ -1229,11 +1185,11 @@ Removing Unused input sections from the image.
     Removing fsl_gint.o(.ARM.exidx.text.GINT_ConfigPins), (8 bytes).
     Removing fsl_gint.o(.text.GINT_GetConfigPins), (14 bytes).
     Removing fsl_gint.o(.ARM.exidx.text.GINT_GetConfigPins), (8 bytes).
-    Removing fsl_gint.o(.text.GINT_EnableCallback), (86 bytes).
+    Removing fsl_gint.o(.text.GINT_EnableCallback), (90 bytes).
     Removing fsl_gint.o(.ARM.exidx.text.GINT_EnableCallback), (8 bytes).
-    Removing fsl_gint.o(.text.GINT_DisableCallback), (100 bytes).
+    Removing fsl_gint.o(.text.GINT_DisableCallback), (124 bytes).
     Removing fsl_gint.o(.ARM.exidx.text.GINT_DisableCallback), (8 bytes).
-    Removing fsl_gint.o(.text.GINT_Deinit), (162 bytes).
+    Removing fsl_gint.o(.text.GINT_Deinit), (184 bytes).
     Removing fsl_gint.o(.ARM.exidx.text.GINT_Deinit), (8 bytes).
     Removing fsl_gint.o(.ARM.exidx.text.GINT0_DriverIRQHandler), (8 bytes).
     Removing fsl_gint.o(.ARM.exidx.text.GINT1_DriverIRQHandler), (8 bytes).
@@ -1241,7 +1197,9 @@ Removing Unused input sections from the image.
     Removing fsl_gint.o(.rodata.cst8), (8 bytes).
     Removing fsl_gint.o(.rodata.s_gintIRQ), (2 bytes).
     Removing fsl_pint.o(.text), (0 bytes).
+    Removing fsl_pint.o(.text.PINT_Init), (126 bytes).
     Removing fsl_pint.o(.ARM.exidx.text.PINT_Init), (8 bytes).
+    Removing fsl_pint.o(.text.PINT_PinInterruptConfig), (80 bytes).
     Removing fsl_pint.o(.ARM.exidx.text.PINT_PinInterruptConfig), (8 bytes).
     Removing fsl_pint.o(.text.PINT_PinInterruptGetConfig), (84 bytes).
     Removing fsl_pint.o(.ARM.exidx.text.PINT_PinInterruptGetConfig), (8 bytes).
@@ -1257,6 +1215,7 @@ Removing Unused input sections from the image.
     Removing fsl_pint.o(.ARM.exidx.text.PINT_PinInterruptClrStatusAll), (8 bytes).
     Removing fsl_pint.o(.text.PINT_EnableCallback), (218 bytes).
     Removing fsl_pint.o(.ARM.exidx.text.PINT_EnableCallback), (8 bytes).
+    Removing fsl_pint.o(.text.PINT_EnableCallbackByIndex), (70 bytes).
     Removing fsl_pint.o(.ARM.exidx.text.PINT_EnableCallbackByIndex), (8 bytes).
     Removing fsl_pint.o(.text.PINT_DisableCallback), (314 bytes).
     Removing fsl_pint.o(.ARM.exidx.text.PINT_DisableCallback), (8 bytes).
@@ -1274,9 +1233,13 @@ Removing Unused input sections from the image.
     Removing fsl_pint.o(.ARM.exidx.text.PIN_INT5_DriverIRQHandler), (8 bytes).
     Removing fsl_pint.o(.ARM.exidx.text.PIN_INT6_DriverIRQHandler), (8 bytes).
     Removing fsl_pint.o(.ARM.exidx.text.PIN_INT7_DriverIRQHandler), (8 bytes).
+    Removing fsl_pint.o(.rodata.s_pintIRQ), (10 bytes).
     Removing fsl_inputmux.o(.text), (0 bytes).
+    Removing fsl_inputmux.o(.text.INPUTMUX_Init), (16 bytes).
     Removing fsl_inputmux.o(.ARM.exidx.text.INPUTMUX_Init), (8 bytes).
+    Removing fsl_inputmux.o(.text.INPUTMUX_AttachSignal), (14 bytes).
     Removing fsl_inputmux.o(.ARM.exidx.text.INPUTMUX_AttachSignal), (8 bytes).
+    Removing fsl_inputmux.o(.text.INPUTMUX_Deinit), (16 bytes).
     Removing fsl_inputmux.o(.ARM.exidx.text.INPUTMUX_Deinit), (8 bytes).
     Removing mcmgr.o(.text), (0 bytes).
     Removing mcmgr.o(.text.MCMGR_RegisterEvent), (30 bytes).
@@ -1290,7 +1253,7 @@ Removing Unused input sections from the image.
     Removing mcmgr.o(.ARM.exidx.text.MCMGR_Init), (8 bytes).
     Removing mcmgr.o(.ARM.exidx.text.MCMGR_StartupDataEventHandler), (8 bytes).
     Removing mcmgr.o(.ARM.exidx.text.MCMGR_FeedStartupDataEventHandler), (8 bytes).
-    Removing mcmgr.o(.text.MCMGR_StartCore), (114 bytes).
+    Removing mcmgr.o(.text.MCMGR_StartCore), (106 bytes).
     Removing mcmgr.o(.ARM.exidx.text.MCMGR_StartCore), (8 bytes).
     Removing mcmgr.o(.ARM.exidx.text.MCMGR_GetStartupData), (8 bytes).
     Removing mcmgr.o(.text.MCMGR_StopCore), (22 bytes).
@@ -1304,7 +1267,7 @@ Removing Unused input sections from the image.
     Removing mcmgr_internal_core_api_lpc55s69.o(.text), (0 bytes).
     Removing mcmgr_internal_core_api_lpc55s69.o(.ARM.exidx.text.mcmgr_early_init_internal), (8 bytes).
     Removing mcmgr_internal_core_api_lpc55s69.o(.ARM.exidx.text.mcmgr_late_init_internal), (8 bytes).
-    Removing mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_start_core_internal), (64 bytes).
+    Removing mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_start_core_internal), (66 bytes).
     Removing mcmgr_internal_core_api_lpc55s69.o(.ARM.exidx.text.mcmgr_start_core_internal), (8 bytes).
     Removing mcmgr_internal_core_api_lpc55s69.o(.ARM.exidx.text.mcmgr_get_startup_data_internal), (8 bytes).
     Removing mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_stop_core_internal), (38 bytes).
@@ -1324,15 +1287,15 @@ Removing Unused input sections from the image.
     Removing main_core1.o(.text.delay), (34 bytes).
     Removing main_core1.o(.ARM.exidx.text.delay), (8 bytes).
     Removing main_core1.o(.ARM.exidx.text.SystemInitHook), (8 bytes).
+    Removing main_core1.o(.text.pint_intr_callback), (14 bytes).
     Removing main_core1.o(.ARM.exidx.text.pint_intr_callback), (8 bytes).
     Removing main_core1.o(.text.xpt2046_read_ad_value), (144 bytes).
     Removing main_core1.o(.ARM.exidx.text.xpt2046_read_ad_value), (8 bytes).
     Removing main_core1.o(.ARM.exidx.text.xpt2046_read_average), (8 bytes).
     Removing main_core1.o(.text.xpt2046_read_xy), (24 bytes).
     Removing main_core1.o(.ARM.exidx.text.xpt2046_read_xy), (8 bytes).
-    Removing main_core1.o(.text.xpt2046_twice_read_xy), (192 bytes).
     Removing main_core1.o(.ARM.exidx.text.xpt2046_twice_read_xy), (8 bytes).
-    Removing main_core1.o(.text.xpt2046_init), (120 bytes).
+    Removing main_core1.o(.text.xpt2046_init), (50 bytes).
     Removing main_core1.o(.ARM.exidx.text.xpt2046_init), (8 bytes).
     Removing main_core1.o(.ARM.exidx.text.main), (8 bytes).
     Removing main_core1.o(.ARM.use_no_argv), (4 bytes).
@@ -1342,11 +1305,11 @@ Removing Unused input sections from the image.
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_ReadOneCharacter), (8 bytes).
     Removing fsl_debug_console.o(.text.DbgConsole_SendData), (34 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_SendData), (8 bytes).
-    Removing fsl_debug_console.o(.text.DbgConsole_SendDataReliable), (48 bytes).
+    Removing fsl_debug_console.o(.text.DbgConsole_SendDataReliable), (46 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_SendDataReliable), (8 bytes).
     Removing fsl_debug_console.o(.text.DbgConsole_ReadLine), (104 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_ReadLine), (8 bytes).
-    Removing fsl_debug_console.o(.text.DbgConsole_ReadCharacter), (48 bytes).
+    Removing fsl_debug_console.o(.text.DbgConsole_ReadCharacter), (40 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_ReadCharacter), (8 bytes).
     Removing fsl_debug_console.o(.text.DbgConsole_Init), (110 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Init), (8 bytes).
@@ -1354,54 +1317,34 @@ Removing Unused input sections from the image.
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Deinit), (8 bytes).
     Removing fsl_debug_console.o(.text.DbgConsole_Flush), (4 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Flush), (8 bytes).
-    Removing fsl_debug_console.o(.text.DbgConsole_Printf), (100 bytes).
+    Removing fsl_debug_console.o(.text.DbgConsole_Printf), (98 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Printf), (8 bytes).
-    Removing fsl_debug_console.o(.text.DbgConsole_PrintCallback), (76 bytes).
+    Removing fsl_debug_console.o(.text.DbgConsole_PrintCallback), (84 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_PrintCallback), (8 bytes).
     Removing fsl_debug_console.o(.text.DbgConsole_Putchar), (52 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Putchar), (8 bytes).
-    Removing fsl_debug_console.o(.text.DbgConsole_Scanf), (130 bytes).
+    Removing fsl_debug_console.o(.text.DbgConsole_Scanf), (128 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Scanf), (8 bytes).
     Removing fsl_debug_console.o(.text.DbgConsole_BlockingPrintf), (92 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_BlockingPrintf), (8 bytes).
-    Removing fsl_debug_console.o(.text.DbgConsole_Getchar), (46 bytes).
+    Removing fsl_debug_console.o(.text.DbgConsole_Getchar), (44 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Getchar), (8 bytes).
     Removing fsl_debug_console.o(.bss..L_MergedGlobals), (32 bytes).
     Removing fsl_str.o(.text), (0 bytes).
-    Removing fsl_str.o(.text.StrFormatPrintf), (1058 bytes).
+    Removing fsl_str.o(.text.StrFormatPrintf), (1150 bytes).
     Removing fsl_str.o(.ARM.exidx.text.StrFormatPrintf), (8 bytes).
-    Removing fsl_str.o(.text.StrFormatScanf), (1474 bytes).
+    Removing fsl_str.o(.text.StrFormatScanf), (1368 bytes).
     Removing fsl_str.o(.ARM.exidx.text.StrFormatScanf), (8 bytes).
     Removing lcd.o(.text), (0 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_write_byte), (8 bytes).
-    Removing lcd.o(.text.lcd_write_word), (64 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_write_word), (8 bytes).
-    Removing lcd.o(.text.lcd_write_reg), (158 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_write_reg), (8 bytes).
-    Removing lcd.o(.text.lcd_hardware_init), (150 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_hardware_init), (8 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_set_cursor), (8 bytes).
-    Removing lcd.o(.text.lcd_clear_screen), (314 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_clear_screen), (8 bytes).
-    Removing lcd.o(.text.lcd_draw_point), (138 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_draw_point), (8 bytes).
-    Removing lcd.o(.text.lcd_clear_block), (308 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_clear_block), (8 bytes).
-    Removing lcd.o(.text.lcd_display_char), (494 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_display_char), (8 bytes).
-    Removing lcd.o(.text.lcd_display_num), (274 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_display_num), (8 bytes).
-    Removing lcd.o(.text.lcd_display_string), (494 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_display_string), (8 bytes).
-    Removing lcd.o(.text.lcd_init), (8348 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_init), (8 bytes).
-    Removing lcd.o(.text.lcd_refresh_init), (152 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_refresh_init), (8 bytes).
-    Removing lcd.o(.text.lcd_refresh_icon), (282 bytes).
-    Removing lcd.o(.ARM.exidx.text.lcd_refresh_icon), (8 bytes).
+    Removing lcd.o(.text.LCD_WR_DATA8), (64 bytes).
+    Removing lcd.o(.ARM.exidx.text.LCD_WR_DATA8), (8 bytes).
+    Removing lcd.o(.text.LCD_WR_DATA), (44 bytes).
+    Removing lcd.o(.ARM.exidx.text.LCD_WR_DATA), (8 bytes).
+    Removing lcd.o(.text.LCD_WR_REG), (80 bytes).
+    Removing lcd.o(.ARM.exidx.text.LCD_WR_REG), (8 bytes).
+    Removing lcd.o(.ARM.exidx.text.LCD_Address_Set), (8 bytes).
     Removing lcd.o(.ARM.exidx.text.lcd_refresh), (8 bytes).
     Removing lcd.o(.bss.g_LCDDispBuf), (46080 bytes).
-    Removing lcd.o(.bss.g_LCDDelayMsCnt), (4 bytes).
     Removing lcd_fonts.o(.text), (0 bytes).
     Removing lcd_fonts.o(.rodata.Font1206), (1140 bytes).
     Removing lcd_fonts.o(.rodata.Font1608), (1520 bytes).
@@ -1446,7 +1389,7 @@ Removing Unused input sections from the image.
     Removing ffixui.o(.text), (40 bytes).
     Removing fepilogue.o(.text), (110 bytes).
 
-618 unused section(s) (total 96672 bytes) removed from the image.
+605 unused section(s) (total 85082 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1553,59 +1496,50 @@ Image Symbol Table
     [Anonymous Symbol]                       0x04000640   Section        0  fsl_gint.o(.text.GINT0_DriverIRQHandler)
     [Anonymous Symbol]                       0x04000664   Section        0  fsl_gint.o(.text.GINT1_DriverIRQHandler)
     [Anonymous Symbol]                       0x04000688   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.HardFault_Handler)
-    [Anonymous Symbol]                       0x0400068c   Section        0  fsl_inputmux.o(.text.INPUTMUX_AttachSignal)
-    [Anonymous Symbol]                       0x0400069c   Section        0  fsl_inputmux.o(.text.INPUTMUX_Deinit)
-    [Anonymous Symbol]                       0x040006ac   Section        0  fsl_inputmux.o(.text.INPUTMUX_Init)
-    [Anonymous Symbol]                       0x040006bc   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.MAILBOX_IRQHandler)
-    [Anonymous Symbol]                       0x040006f0   Section        0  mcmgr.o(.text.MCMGR_EarlyInit)
-    MCMGR_FeedStartupDataEventHandler        0x04000711   Thumb Code   100  mcmgr.o(.text.MCMGR_FeedStartupDataEventHandler)
-    [Anonymous Symbol]                       0x04000710   Section        0  mcmgr.o(.text.MCMGR_FeedStartupDataEventHandler)
-    [Anonymous Symbol]                       0x04000774   Section        0  mcmgr.o(.text.MCMGR_GetStartupData)
-    [Anonymous Symbol]                       0x040007c8   Section        0  mcmgr.o(.text.MCMGR_Init)
-    MCMGR_StartupDataEventHandler            0x04000821   Thumb Code   104  mcmgr.o(.text.MCMGR_StartupDataEventHandler)
-    [Anonymous Symbol]                       0x04000820   Section        0  mcmgr.o(.text.MCMGR_StartupDataEventHandler)
-    [Anonymous Symbol]                       0x04000888   Section        0  mcmgr.o(.text.MCMGR_TriggerEvent)
-    [Anonymous Symbol]                       0x040008b8   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.MemManage_Handler)
-    [Anonymous Symbol]                       0x040008bc   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.NMI_Handler)
-    [Anonymous Symbol]                       0x040008c0   Section        0  fsl_pint.o(.text.PINT_EnableCallbackByIndex)
-    [Anonymous Symbol]                       0x04000908   Section        0  fsl_pint.o(.text.PINT_Init)
-    [Anonymous Symbol]                       0x040009e0   Section        0  fsl_pint.o(.text.PINT_PinInterruptConfig)
-    [Anonymous Symbol]                       0x04000a2c   Section        0  fsl_pint.o(.text.PIN_INT0_DriverIRQHandler)
-    [Anonymous Symbol]                       0x04000a78   Section        0  fsl_pint.o(.text.PIN_INT1_DriverIRQHandler)
-    [Anonymous Symbol]                       0x04000ac4   Section        0  fsl_pint.o(.text.PIN_INT2_DriverIRQHandler)
-    [Anonymous Symbol]                       0x04000b10   Section        0  fsl_pint.o(.text.PIN_INT3_DriverIRQHandler)
-    [Anonymous Symbol]                       0x04000b5c   Section        0  fsl_pint.o(.text.PIN_INT4_DriverIRQHandler)
-    [Anonymous Symbol]                       0x04000ba8   Section        0  fsl_pint.o(.text.PIN_INT5_DriverIRQHandler)
-    [Anonymous Symbol]                       0x04000bf4   Section        0  fsl_pint.o(.text.PIN_INT6_DriverIRQHandler)
-    [Anonymous Symbol]                       0x04000c40   Section        0  fsl_pint.o(.text.PIN_INT7_DriverIRQHandler)
-    [Anonymous Symbol]                       0x04000c8c   Section        0  fsl_reset.o(.text.RESET_PeripheralReset)
-    [Anonymous Symbol]                       0x04000cfc   Section        0  fsl_pint.o(.text.SEC_GPIO_INT0_IRQ0_DriverIRQHandler)
-    [Anonymous Symbol]                       0x04000d44   Section        0  fsl_pint.o(.text.SEC_GPIO_INT0_IRQ1_DriverIRQHandler)
-    [Anonymous Symbol]                       0x04000d8c   Section        0  fsl_spi.o(.text.SPI_MasterSetBaud)
-    [Anonymous Symbol]                       0x04000df0   Section        0  system_lpc55s69_cm33_core1.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x04000e2c   Section        0  main_core1.o(.text.SystemInitHook)
-    [Anonymous Symbol]                       0x04000e30   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.UsageFault_Handler)
-    [Anonymous Symbol]                       0x04000e34   Section        0  lcd.o(.text.lcd_refresh)
-    [Anonymous Symbol]                       0x04000f58   Section        0  lcd.o(.text.lcd_set_cursor)
-    [Anonymous Symbol]                       0x04001184   Section        0  lcd.o(.text.lcd_write_byte)
-    [Anonymous Symbol]                       0x040011dc   Section        0  main_core1.o(.text.main)
-    [Anonymous Symbol]                       0x04001394   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_early_init_internal)
-    [Anonymous Symbol]                       0x040013c0   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_get_current_core_internal)
-    [Anonymous Symbol]                       0x040013c4   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_get_startup_data_internal)
-    [Anonymous Symbol]                       0x040013ec   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_late_init_internal)
-    [Anonymous Symbol]                       0x0400140c   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_trigger_event_internal)
-    [Anonymous Symbol]                       0x04001434   Section        0  main_core1.o(.text.pint_intr_callback)
-    [Anonymous Symbol]                       0x04001444   Section        0  main_core1.o(.text.xpt2046_read_average)
-    i.__scatterload_copy                     0x040017ba   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x040017c8   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x040017ca   Section       14  handlers.o(i.__scatterload_zeroinit)
-    s_mcmgrCores                             0x040017e4   Data          16  mcmgr_internal_core_api_lpc55s69.o(.rodata.s_mcmgrCores)
-    [Anonymous Symbol]                       0x040017e4   Section        0  mcmgr_internal_core_api_lpc55s69.o(.rodata.s_mcmgrCores)
-    s_pintIRQ                                0x040017f4   Data          10  fsl_pint.o(.rodata.s_pintIRQ)
-    [Anonymous Symbol]                       0x040017f4   Section        0  fsl_pint.o(.rodata.s_pintIRQ)
-    .L.str                                   0x040017fe   Data           5  mcmgr_internal_core_api_lpc55s69.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x040017fe   Section        0  mcmgr_internal_core_api_lpc55s69.o(.rodata.str1.1)
-    .L.str.1                                 0x04001803   Data          10  mcmgr_internal_core_api_lpc55s69.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x0400068c   Section        0  lcd.o(.text.LCD_Address_Set)
+    [Anonymous Symbol]                       0x04000854   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.MAILBOX_IRQHandler)
+    [Anonymous Symbol]                       0x04000888   Section        0  mcmgr.o(.text.MCMGR_EarlyInit)
+    MCMGR_FeedStartupDataEventHandler        0x040008a9   Thumb Code   100  mcmgr.o(.text.MCMGR_FeedStartupDataEventHandler)
+    [Anonymous Symbol]                       0x040008a8   Section        0  mcmgr.o(.text.MCMGR_FeedStartupDataEventHandler)
+    [Anonymous Symbol]                       0x0400090c   Section        0  mcmgr.o(.text.MCMGR_GetStartupData)
+    [Anonymous Symbol]                       0x04000960   Section        0  mcmgr.o(.text.MCMGR_Init)
+    MCMGR_StartupDataEventHandler            0x040009b9   Thumb Code   104  mcmgr.o(.text.MCMGR_StartupDataEventHandler)
+    [Anonymous Symbol]                       0x040009b8   Section        0  mcmgr.o(.text.MCMGR_StartupDataEventHandler)
+    [Anonymous Symbol]                       0x04000a20   Section        0  mcmgr.o(.text.MCMGR_TriggerEvent)
+    [Anonymous Symbol]                       0x04000a50   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.MemManage_Handler)
+    [Anonymous Symbol]                       0x04000a54   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.NMI_Handler)
+    [Anonymous Symbol]                       0x04000a58   Section        0  fsl_pint.o(.text.PIN_INT0_DriverIRQHandler)
+    [Anonymous Symbol]                       0x04000aa4   Section        0  fsl_pint.o(.text.PIN_INT1_DriverIRQHandler)
+    [Anonymous Symbol]                       0x04000af0   Section        0  fsl_pint.o(.text.PIN_INT2_DriverIRQHandler)
+    [Anonymous Symbol]                       0x04000b3c   Section        0  fsl_pint.o(.text.PIN_INT3_DriverIRQHandler)
+    [Anonymous Symbol]                       0x04000b88   Section        0  fsl_pint.o(.text.PIN_INT4_DriverIRQHandler)
+    [Anonymous Symbol]                       0x04000bd4   Section        0  fsl_pint.o(.text.PIN_INT5_DriverIRQHandler)
+    [Anonymous Symbol]                       0x04000c20   Section        0  fsl_pint.o(.text.PIN_INT6_DriverIRQHandler)
+    [Anonymous Symbol]                       0x04000c6c   Section        0  fsl_pint.o(.text.PIN_INT7_DriverIRQHandler)
+    [Anonymous Symbol]                       0x04000cb8   Section        0  fsl_reset.o(.text.RESET_PeripheralReset)
+    [Anonymous Symbol]                       0x04000d28   Section        0  fsl_pint.o(.text.SEC_GPIO_INT0_IRQ0_DriverIRQHandler)
+    [Anonymous Symbol]                       0x04000d70   Section        0  fsl_pint.o(.text.SEC_GPIO_INT0_IRQ1_DriverIRQHandler)
+    [Anonymous Symbol]                       0x04000db8   Section        0  fsl_spi.o(.text.SPI_MasterSetBaud)
+    [Anonymous Symbol]                       0x04000e18   Section        0  system_lpc55s69_cm33_core1.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x04000e54   Section        0  main_core1.o(.text.SystemInitHook)
+    [Anonymous Symbol]                       0x04000e58   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.UsageFault_Handler)
+    [Anonymous Symbol]                       0x04000e5c   Section        0  lcd.o(.text.lcd_refresh)
+    [Anonymous Symbol]                       0x04000f8c   Section        0  main_core1.o(.text.main)
+    [Anonymous Symbol]                       0x040010dc   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_early_init_internal)
+    [Anonymous Symbol]                       0x04001108   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_get_current_core_internal)
+    [Anonymous Symbol]                       0x0400110c   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_get_startup_data_internal)
+    [Anonymous Symbol]                       0x04001134   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_late_init_internal)
+    [Anonymous Symbol]                       0x04001154   Section        0  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_trigger_event_internal)
+    [Anonymous Symbol]                       0x0400117c   Section        0  main_core1.o(.text.xpt2046_read_average)
+    [Anonymous Symbol]                       0x040014f0   Section        0  main_core1.o(.text.xpt2046_twice_read_xy)
+    i.__scatterload_copy                     0x040015b0   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x040015be   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x040015c0   Section       14  handlers.o(i.__scatterload_zeroinit)
+    s_mcmgrCores                             0x040015dc   Data          16  mcmgr_internal_core_api_lpc55s69.o(.rodata.s_mcmgrCores)
+    [Anonymous Symbol]                       0x040015dc   Section        0  mcmgr_internal_core_api_lpc55s69.o(.rodata.s_mcmgrCores)
+    .L.str                                   0x040015ec   Data           5  mcmgr_internal_core_api_lpc55s69.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x040015ec   Section        0  mcmgr_internal_core_api_lpc55s69.o(.rodata.str1.1)
+    .L.str.1                                 0x040015f1   Data          10  mcmgr_internal_core_api_lpc55s69.o(.rodata.str1.1)
     .L_MergedGlobals                         0x20040000   Data          72  fsl_flexcomm.o(.bss..L_MergedGlobals)
     s_flexcommIrqHandler                     0x20040000   Data          36  fsl_flexcomm.o(.bss..L_MergedGlobals)
     [Anonymous Symbol]                       0x20040000   Section        0  fsl_flexcomm.o(.bss..L_MergedGlobals)
@@ -1623,7 +1557,7 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    BuildAttributes$$THM_ISAv4$P$D$K$B$S$8M$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    BuildAttributes$$THM_ISAv4$P$D$K$B$S$8M$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$IEEEF$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
     __cpp_initialize__aeabi_                  - Undefined Weak Reference
     __cxa_finalize                            - Undefined Weak Reference
     __decompress                              - Undefined Weak Reference
@@ -1760,51 +1694,44 @@ Image Symbol Table
     GINT0_DriverIRQHandler                   0x04000641   Thumb Code    34  fsl_gint.o(.text.GINT0_DriverIRQHandler)
     GINT1_DriverIRQHandler                   0x04000665   Thumb Code    34  fsl_gint.o(.text.GINT1_DriverIRQHandler)
     HardFault_Handler                        0x04000689   Thumb Code     4  mcmgr_internal_core_api_lpc55s69.o(.text.HardFault_Handler)
-    INPUTMUX_AttachSignal                    0x0400068d   Thumb Code    14  fsl_inputmux.o(.text.INPUTMUX_AttachSignal)
-    INPUTMUX_Deinit                          0x0400069d   Thumb Code    16  fsl_inputmux.o(.text.INPUTMUX_Deinit)
-    INPUTMUX_Init                            0x040006ad   Thumb Code    16  fsl_inputmux.o(.text.INPUTMUX_Init)
-    MAILBOX_IRQHandler                       0x040006bd   Thumb Code    52  mcmgr_internal_core_api_lpc55s69.o(.text.MAILBOX_IRQHandler)
-    MCMGR_EarlyInit                          0x040006f1   Thumb Code    32  mcmgr.o(.text.MCMGR_EarlyInit)
-    MCMGR_GetStartupData                     0x04000775   Thumb Code    84  mcmgr.o(.text.MCMGR_GetStartupData)
-    MCMGR_Init                               0x040007c9   Thumb Code    88  mcmgr.o(.text.MCMGR_Init)
-    MCMGR_TriggerEvent                       0x04000889   Thumb Code    46  mcmgr.o(.text.MCMGR_TriggerEvent)
-    MemManage_Handler                        0x040008b9   Thumb Code     4  mcmgr_internal_core_api_lpc55s69.o(.text.MemManage_Handler)
-    NMI_Handler                              0x040008bd   Thumb Code     4  mcmgr_internal_core_api_lpc55s69.o(.text.NMI_Handler)
-    PINT_EnableCallbackByIndex               0x040008c1   Thumb Code    70  fsl_pint.o(.text.PINT_EnableCallbackByIndex)
-    PINT_Init                                0x04000909   Thumb Code   214  fsl_pint.o(.text.PINT_Init)
-    PINT_PinInterruptConfig                  0x040009e1   Thumb Code    76  fsl_pint.o(.text.PINT_PinInterruptConfig)
-    PIN_INT0_DriverIRQHandler                0x04000a2d   Thumb Code    74  fsl_pint.o(.text.PIN_INT0_DriverIRQHandler)
-    PIN_INT1_DriverIRQHandler                0x04000a79   Thumb Code    74  fsl_pint.o(.text.PIN_INT1_DriverIRQHandler)
-    PIN_INT2_DriverIRQHandler                0x04000ac5   Thumb Code    74  fsl_pint.o(.text.PIN_INT2_DriverIRQHandler)
-    PIN_INT3_DriverIRQHandler                0x04000b11   Thumb Code    74  fsl_pint.o(.text.PIN_INT3_DriverIRQHandler)
-    PIN_INT4_DriverIRQHandler                0x04000b5d   Thumb Code    74  fsl_pint.o(.text.PIN_INT4_DriverIRQHandler)
-    PIN_INT5_DriverIRQHandler                0x04000ba9   Thumb Code    74  fsl_pint.o(.text.PIN_INT5_DriverIRQHandler)
-    PIN_INT6_DriverIRQHandler                0x04000bf5   Thumb Code    74  fsl_pint.o(.text.PIN_INT6_DriverIRQHandler)
-    PIN_INT7_DriverIRQHandler                0x04000c41   Thumb Code    74  fsl_pint.o(.text.PIN_INT7_DriverIRQHandler)
-    RESET_PeripheralReset                    0x04000c8d   Thumb Code   112  fsl_reset.o(.text.RESET_PeripheralReset)
-    SEC_GPIO_INT0_IRQ0_DriverIRQHandler      0x04000cfd   Thumb Code    70  fsl_pint.o(.text.SEC_GPIO_INT0_IRQ0_DriverIRQHandler)
-    SEC_GPIO_INT0_IRQ1_DriverIRQHandler      0x04000d45   Thumb Code    70  fsl_pint.o(.text.SEC_GPIO_INT0_IRQ1_DriverIRQHandler)
-    SPI_MasterSetBaud                        0x04000d8d   Thumb Code   100  fsl_spi.o(.text.SPI_MasterSetBaud)
-    SystemInit                               0x04000df1   Thumb Code    60  system_lpc55s69_cm33_core1.o(.text.SystemInit)
-    SystemInitHook                           0x04000e2d   Thumb Code     4  main_core1.o(.text.SystemInitHook)
-    UsageFault_Handler                       0x04000e31   Thumb Code     4  mcmgr_internal_core_api_lpc55s69.o(.text.UsageFault_Handler)
-    lcd_refresh                              0x04000e35   Thumb Code   290  lcd.o(.text.lcd_refresh)
-    lcd_set_cursor                           0x04000f59   Thumb Code   554  lcd.o(.text.lcd_set_cursor)
-    lcd_write_byte                           0x04001185   Thumb Code    88  lcd.o(.text.lcd_write_byte)
-    main                                     0x040011dd   Thumb Code   438  main_core1.o(.text.main)
-    mcmgr_early_init_internal                0x04001395   Thumb Code    42  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_early_init_internal)
-    mcmgr_get_current_core_internal          0x040013c1   Thumb Code     4  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_get_current_core_internal)
-    mcmgr_get_startup_data_internal          0x040013c5   Thumb Code    38  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_get_startup_data_internal)
-    mcmgr_late_init_internal                 0x040013ed   Thumb Code    30  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_late_init_internal)
-    mcmgr_trigger_event_internal             0x0400140d   Thumb Code    40  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_trigger_event_internal)
-    pint_intr_callback                       0x04001435   Thumb Code    14  main_core1.o(.text.pint_intr_callback)
-    xpt2046_read_average                     0x04001445   Thumb Code   886  main_core1.o(.text.xpt2046_read_average)
-    __scatterload_copy                       0x040017bb   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x040017c9   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x040017cb   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    g_mcmgrSystem                            0x040017d8   Data          12  mcmgr_internal_core_api_lpc55s69.o(.rodata.g_mcmgrSystem)
-    Region$$Table$$Base                      0x04001810   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x04001820   Number         0  anon$$obj.o(Region$$Table)
+    LCD_Address_Set                          0x0400068d   Thumb Code   456  lcd.o(.text.LCD_Address_Set)
+    MAILBOX_IRQHandler                       0x04000855   Thumb Code    52  mcmgr_internal_core_api_lpc55s69.o(.text.MAILBOX_IRQHandler)
+    MCMGR_EarlyInit                          0x04000889   Thumb Code    32  mcmgr.o(.text.MCMGR_EarlyInit)
+    MCMGR_GetStartupData                     0x0400090d   Thumb Code    84  mcmgr.o(.text.MCMGR_GetStartupData)
+    MCMGR_Init                               0x04000961   Thumb Code    88  mcmgr.o(.text.MCMGR_Init)
+    MCMGR_TriggerEvent                       0x04000a21   Thumb Code    46  mcmgr.o(.text.MCMGR_TriggerEvent)
+    MemManage_Handler                        0x04000a51   Thumb Code     4  mcmgr_internal_core_api_lpc55s69.o(.text.MemManage_Handler)
+    NMI_Handler                              0x04000a55   Thumb Code     4  mcmgr_internal_core_api_lpc55s69.o(.text.NMI_Handler)
+    PIN_INT0_DriverIRQHandler                0x04000a59   Thumb Code    74  fsl_pint.o(.text.PIN_INT0_DriverIRQHandler)
+    PIN_INT1_DriverIRQHandler                0x04000aa5   Thumb Code    74  fsl_pint.o(.text.PIN_INT1_DriverIRQHandler)
+    PIN_INT2_DriverIRQHandler                0x04000af1   Thumb Code    74  fsl_pint.o(.text.PIN_INT2_DriverIRQHandler)
+    PIN_INT3_DriverIRQHandler                0x04000b3d   Thumb Code    74  fsl_pint.o(.text.PIN_INT3_DriverIRQHandler)
+    PIN_INT4_DriverIRQHandler                0x04000b89   Thumb Code    74  fsl_pint.o(.text.PIN_INT4_DriverIRQHandler)
+    PIN_INT5_DriverIRQHandler                0x04000bd5   Thumb Code    74  fsl_pint.o(.text.PIN_INT5_DriverIRQHandler)
+    PIN_INT6_DriverIRQHandler                0x04000c21   Thumb Code    74  fsl_pint.o(.text.PIN_INT6_DriverIRQHandler)
+    PIN_INT7_DriverIRQHandler                0x04000c6d   Thumb Code    74  fsl_pint.o(.text.PIN_INT7_DriverIRQHandler)
+    RESET_PeripheralReset                    0x04000cb9   Thumb Code   112  fsl_reset.o(.text.RESET_PeripheralReset)
+    SEC_GPIO_INT0_IRQ0_DriverIRQHandler      0x04000d29   Thumb Code    70  fsl_pint.o(.text.SEC_GPIO_INT0_IRQ0_DriverIRQHandler)
+    SEC_GPIO_INT0_IRQ1_DriverIRQHandler      0x04000d71   Thumb Code    70  fsl_pint.o(.text.SEC_GPIO_INT0_IRQ1_DriverIRQHandler)
+    SPI_MasterSetBaud                        0x04000db9   Thumb Code    94  fsl_spi.o(.text.SPI_MasterSetBaud)
+    SystemInit                               0x04000e19   Thumb Code    60  system_lpc55s69_cm33_core1.o(.text.SystemInit)
+    SystemInitHook                           0x04000e55   Thumb Code     4  main_core1.o(.text.SystemInitHook)
+    UsageFault_Handler                       0x04000e59   Thumb Code     4  mcmgr_internal_core_api_lpc55s69.o(.text.UsageFault_Handler)
+    lcd_refresh                              0x04000e5d   Thumb Code   302  lcd.o(.text.lcd_refresh)
+    main                                     0x04000f8d   Thumb Code   336  main_core1.o(.text.main)
+    mcmgr_early_init_internal                0x040010dd   Thumb Code    42  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_early_init_internal)
+    mcmgr_get_current_core_internal          0x04001109   Thumb Code     4  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_get_current_core_internal)
+    mcmgr_get_startup_data_internal          0x0400110d   Thumb Code    38  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_get_startup_data_internal)
+    mcmgr_late_init_internal                 0x04001135   Thumb Code    30  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_late_init_internal)
+    mcmgr_trigger_event_internal             0x04001155   Thumb Code    40  mcmgr_internal_core_api_lpc55s69.o(.text.mcmgr_trigger_event_internal)
+    xpt2046_read_average                     0x0400117d   Thumb Code   884  main_core1.o(.text.xpt2046_read_average)
+    xpt2046_twice_read_xy                    0x040014f1   Thumb Code   192  main_core1.o(.text.xpt2046_twice_read_xy)
+    __scatterload_copy                       0x040015b1   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x040015bf   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x040015c1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    g_mcmgrSystem                            0x040015d0   Data          12  mcmgr_internal_core_api_lpc55s69.o(.rodata.g_mcmgrSystem)
+    Region$$Table$$Base                      0x040015fc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0400160c   Number         0  anon$$obj.o(Region$$Table)
     g_TouchedFlag                            0x20040048   Data           1  main_core1.o(.bss..L_MergedGlobals)
     g_TouchValueBuf                          0x2004004c   Data           4  main_core1.o(.bss..L_MergedGlobals)
     MCMGR_eventTable                         0x20040050   Data          72  mcmgr.o(.bss.MCMGR_eventTable)
@@ -1823,167 +1750,155 @@ Memory Map of the image
 
   Image Entry point : 0x04000201
 
-  Load Region LR_m_text (Base: 0x04000000, Size: 0x00001820, Max: 0x00008000, ABSOLUTE)
+  Load Region LR_m_text (Base: 0x04000000, Size: 0x0000160c, Max: 0x00008000, ABSOLUTE)
 
     Execution Region VECTOR_ROM (Exec base: 0x04000000, Load base: 0x04000000, Size: 0x00000130, Max: 0x00000200, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x04000000   0x04000000   0x00000130   Data   RO          762    .isr_vector         startup_lpc55s69_cm33_core1.o
+    0x04000000   0x04000000   0x00000130   Data   RO          739    .isr_vector         startup_lpc55s69_cm33_core1.o
 
 
-    Execution Region ER_m_text (Exec base: 0x04000200, Load base: 0x04000200, Size: 0x00001620, Max: 0x00007e00, ABSOLUTE, FIXED)
+    Execution Region ER_m_text (Exec base: 0x04000200, Load base: 0x04000200, Size: 0x0000140c, Max: 0x00007e00, ABSOLUTE, FIXED)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x04000200   0x04000200   0x00000000   Code   RO          902  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x04000200   0x04000200   0x00000004   Code   RO          953    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
-    0x04000204   0x04000204   0x00000004   Code   RO          956    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x04000208   0x04000208   0x00000000   Code   RO          958    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x04000208   0x04000208   0x00000000   Code   RO          960    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x04000208   0x04000208   0x00000008   Code   RO          961    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x04000210   0x04000210   0x00000000   Code   RO          963    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x04000210   0x04000210   0x00000000   Code   RO          965    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x04000210   0x04000210   0x00000004   Code   RO          954    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
-    0x04000214   0x04000214   0x0000022c   Code   RO          761    .text               startup_lpc55s69_cm33_core1.o
-    0x04000440   0x04000440   0x00000024   Code   RO          980    .text               mc_w.l(init.o)
-    0x04000464   0x04000464   0x00000004   Code   RO          716    .text.BusFault_Handler  mcmgr_internal_core_api_lpc55s69.o
-    0x04000468   0x04000468   0x0000000c   Code   RO          529    .text.DMA0_DriverIRQHandler  fsl_dma.o
-    0x04000474   0x04000474   0x0000000c   Code   RO          531    .text.DMA1_DriverIRQHandler  fsl_dma.o
-    0x04000480   0x04000480   0x000000d6   Code   RO          527    .text.DMA_IRQHandle  fsl_dma.o
+    0x04000200   0x04000200   0x00000000   Code   RO          854  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x04000200   0x04000200   0x00000004   Code   RO          905    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
+    0x04000204   0x04000204   0x00000004   Code   RO          908    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x04000208   0x04000208   0x00000000   Code   RO          910    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x04000208   0x04000208   0x00000000   Code   RO          912    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x04000208   0x04000208   0x00000008   Code   RO          913    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x04000210   0x04000210   0x00000000   Code   RO          915    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x04000210   0x04000210   0x00000000   Code   RO          917    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x04000210   0x04000210   0x00000004   Code   RO          906    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
+    0x04000214   0x04000214   0x0000022c   Code   RO          738    .text               startup_lpc55s69_cm33_core1.o
+    0x04000440   0x04000440   0x00000024   Code   RO          932    .text               mc_w.l(init.o)
+    0x04000464   0x04000464   0x00000004   Code   RO          695    .text.BusFault_Handler  mcmgr_internal_core_api_lpc55s69.o
+    0x04000468   0x04000468   0x0000000c   Code   RO          513    .text.DMA0_DriverIRQHandler  fsl_dma.o
+    0x04000474   0x04000474   0x0000000c   Code   RO          515    .text.DMA1_DriverIRQHandler  fsl_dma.o
+    0x04000480   0x04000480   0x000000d6   Code   RO          511    .text.DMA_IRQHandle  fsl_dma.o
     0x04000556   0x04000556   0x00000002   PAD
-    0x04000558   0x04000558   0x0000000e   Code   RO          708    .text.DefaultISR    mcmgr_internal_core_api_lpc55s69.o
+    0x04000558   0x04000558   0x0000000e   Code   RO          687    .text.DefaultISR    mcmgr_internal_core_api_lpc55s69.o
     0x04000566   0x04000566   0x00000002   PAD
-    0x04000568   0x04000568   0x00000016   Code   RO          382    .text.FLEXCOMM0_DriverIRQHandler  fsl_flexcomm.o
+    0x04000568   0x04000568   0x00000016   Code   RO          370    .text.FLEXCOMM0_DriverIRQHandler  fsl_flexcomm.o
     0x0400057e   0x0400057e   0x00000002   PAD
-    0x04000580   0x04000580   0x00000016   Code   RO          384    .text.FLEXCOMM1_DriverIRQHandler  fsl_flexcomm.o
+    0x04000580   0x04000580   0x00000016   Code   RO          372    .text.FLEXCOMM1_DriverIRQHandler  fsl_flexcomm.o
     0x04000596   0x04000596   0x00000002   PAD
-    0x04000598   0x04000598   0x00000016   Code   RO          386    .text.FLEXCOMM2_DriverIRQHandler  fsl_flexcomm.o
+    0x04000598   0x04000598   0x00000016   Code   RO          374    .text.FLEXCOMM2_DriverIRQHandler  fsl_flexcomm.o
     0x040005ae   0x040005ae   0x00000002   PAD
-    0x040005b0   0x040005b0   0x00000016   Code   RO          388    .text.FLEXCOMM3_DriverIRQHandler  fsl_flexcomm.o
+    0x040005b0   0x040005b0   0x00000016   Code   RO          376    .text.FLEXCOMM3_DriverIRQHandler  fsl_flexcomm.o
     0x040005c6   0x040005c6   0x00000002   PAD
-    0x040005c8   0x040005c8   0x00000016   Code   RO          390    .text.FLEXCOMM4_DriverIRQHandler  fsl_flexcomm.o
+    0x040005c8   0x040005c8   0x00000016   Code   RO          378    .text.FLEXCOMM4_DriverIRQHandler  fsl_flexcomm.o
     0x040005de   0x040005de   0x00000002   PAD
-    0x040005e0   0x040005e0   0x00000016   Code   RO          392    .text.FLEXCOMM5_DriverIRQHandler  fsl_flexcomm.o
+    0x040005e0   0x040005e0   0x00000016   Code   RO          380    .text.FLEXCOMM5_DriverIRQHandler  fsl_flexcomm.o
     0x040005f6   0x040005f6   0x00000002   PAD
-    0x040005f8   0x040005f8   0x00000016   Code   RO          394    .text.FLEXCOMM6_DriverIRQHandler  fsl_flexcomm.o
+    0x040005f8   0x040005f8   0x00000016   Code   RO          382    .text.FLEXCOMM6_DriverIRQHandler  fsl_flexcomm.o
     0x0400060e   0x0400060e   0x00000002   PAD
-    0x04000610   0x04000610   0x00000016   Code   RO          396    .text.FLEXCOMM7_DriverIRQHandler  fsl_flexcomm.o
+    0x04000610   0x04000610   0x00000016   Code   RO          384    .text.FLEXCOMM7_DriverIRQHandler  fsl_flexcomm.o
     0x04000626   0x04000626   0x00000002   PAD
-    0x04000628   0x04000628   0x00000016   Code   RO          398    .text.FLEXCOMM8_DriverIRQHandler  fsl_flexcomm.o
+    0x04000628   0x04000628   0x00000016   Code   RO          386    .text.FLEXCOMM8_DriverIRQHandler  fsl_flexcomm.o
     0x0400063e   0x0400063e   0x00000002   PAD
-    0x04000640   0x04000640   0x00000022   Code   RO          563    .text.GINT0_DriverIRQHandler  fsl_gint.o
+    0x04000640   0x04000640   0x00000022   Code   RO          546    .text.GINT0_DriverIRQHandler  fsl_gint.o
     0x04000662   0x04000662   0x00000002   PAD
-    0x04000664   0x04000664   0x00000022   Code   RO          565    .text.GINT1_DriverIRQHandler  fsl_gint.o
+    0x04000664   0x04000664   0x00000022   Code   RO          548    .text.GINT1_DriverIRQHandler  fsl_gint.o
     0x04000686   0x04000686   0x00000002   PAD
-    0x04000688   0x04000688   0x00000004   Code   RO          710    .text.HardFault_Handler  mcmgr_internal_core_api_lpc55s69.o
-    0x0400068c   0x0400068c   0x0000000e   Code   RO          639    .text.INPUTMUX_AttachSignal  fsl_inputmux.o
-    0x0400069a   0x0400069a   0x00000002   PAD
-    0x0400069c   0x0400069c   0x00000010   Code   RO          641    .text.INPUTMUX_Deinit  fsl_inputmux.o
-    0x040006ac   0x040006ac   0x00000010   Code   RO          637    .text.INPUTMUX_Init  fsl_inputmux.o
-    0x040006bc   0x040006bc   0x00000034   Code   RO          706    .text.MAILBOX_IRQHandler  mcmgr_internal_core_api_lpc55s69.o
-    0x040006f0   0x040006f0   0x00000020   Code   RO          658    .text.MCMGR_EarlyInit  mcmgr.o
-    0x04000710   0x04000710   0x00000064   Code   RO          666    .text.MCMGR_FeedStartupDataEventHandler  mcmgr.o
-    0x04000774   0x04000774   0x00000054   Code   RO          670    .text.MCMGR_GetStartupData  mcmgr.o
-    0x040007c8   0x040007c8   0x00000058   Code   RO          662    .text.MCMGR_Init    mcmgr.o
-    0x04000820   0x04000820   0x00000068   Code   RO          664    .text.MCMGR_StartupDataEventHandler  mcmgr.o
-    0x04000888   0x04000888   0x0000002e   Code   RO          654    .text.MCMGR_TriggerEvent  mcmgr.o
-    0x040008b6   0x040008b6   0x00000002   PAD
-    0x040008b8   0x040008b8   0x00000004   Code   RO          714    .text.MemManage_Handler  mcmgr_internal_core_api_lpc55s69.o
-    0x040008bc   0x040008bc   0x00000004   Code   RO          712    .text.NMI_Handler   mcmgr_internal_core_api_lpc55s69.o
-    0x040008c0   0x040008c0   0x00000046   Code   RO          598    .text.PINT_EnableCallbackByIndex  fsl_pint.o
-    0x04000906   0x04000906   0x00000002   PAD
-    0x04000908   0x04000908   0x000000d6   Code   RO          580    .text.PINT_Init     fsl_pint.o
-    0x040009de   0x040009de   0x00000002   PAD
-    0x040009e0   0x040009e0   0x0000004c   Code   RO          582    .text.PINT_PinInterruptConfig  fsl_pint.o
-    0x04000a2c   0x04000a2c   0x0000004a   Code   RO          610    .text.PIN_INT0_DriverIRQHandler  fsl_pint.o
-    0x04000a76   0x04000a76   0x00000002   PAD
-    0x04000a78   0x04000a78   0x0000004a   Code   RO          612    .text.PIN_INT1_DriverIRQHandler  fsl_pint.o
-    0x04000ac2   0x04000ac2   0x00000002   PAD
-    0x04000ac4   0x04000ac4   0x0000004a   Code   RO          614    .text.PIN_INT2_DriverIRQHandler  fsl_pint.o
-    0x04000b0e   0x04000b0e   0x00000002   PAD
-    0x04000b10   0x04000b10   0x0000004a   Code   RO          616    .text.PIN_INT3_DriverIRQHandler  fsl_pint.o
-    0x04000b5a   0x04000b5a   0x00000002   PAD
-    0x04000b5c   0x04000b5c   0x0000004a   Code   RO          618    .text.PIN_INT4_DriverIRQHandler  fsl_pint.o
-    0x04000ba6   0x04000ba6   0x00000002   PAD
-    0x04000ba8   0x04000ba8   0x0000004a   Code   RO          620    .text.PIN_INT5_DriverIRQHandler  fsl_pint.o
-    0x04000bf2   0x04000bf2   0x00000002   PAD
-    0x04000bf4   0x04000bf4   0x0000004a   Code   RO          622    .text.PIN_INT6_DriverIRQHandler  fsl_pint.o
-    0x04000c3e   0x04000c3e   0x00000002   PAD
-    0x04000c40   0x04000c40   0x0000004a   Code   RO          624    .text.PIN_INT7_DriverIRQHandler  fsl_pint.o
-    0x04000c8a   0x04000c8a   0x00000002   PAD
-    0x04000c8c   0x04000c8c   0x00000070   Code   RO          430    .text.RESET_PeripheralReset  fsl_reset.o
-    0x04000cfc   0x04000cfc   0x00000046   Code   RO          606    .text.SEC_GPIO_INT0_IRQ0_DriverIRQHandler  fsl_pint.o
-    0x04000d42   0x04000d42   0x00000002   PAD
-    0x04000d44   0x04000d44   0x00000046   Code   RO          608    .text.SEC_GPIO_INT0_IRQ1_DriverIRQHandler  fsl_pint.o
-    0x04000d8a   0x04000d8a   0x00000002   PAD
-    0x04000d8c   0x04000d8c   0x00000064   Code   RO          180    .text.SPI_MasterSetBaud  fsl_spi.o
-    0x04000df0   0x04000df0   0x0000003c   Code   RO          154    .text.SystemInit    system_lpc55s69_cm33_core1.o
-    0x04000e2c   0x04000e2c   0x00000004   Code   RO          735    .text.SystemInitHook  main_core1.o
-    0x04000e30   0x04000e30   0x00000004   Code   RO          718    .text.UsageFault_Handler  mcmgr_internal_core_api_lpc55s69.o
-    0x04000e34   0x04000e34   0x00000122   Code   RO          848    .text.lcd_refresh   lcd.o
-    0x04000f56   0x04000f56   0x00000002   PAD
-    0x04000f58   0x04000f58   0x0000022a   Code   RO          828    .text.lcd_set_cursor  lcd.o
-    0x04001182   0x04001182   0x00000002   PAD
-    0x04001184   0x04001184   0x00000058   Code   RO          820    .text.lcd_write_byte  lcd.o
-    0x040011dc   0x040011dc   0x000001b6   Code   RO          749    .text.main          main_core1.o
-    0x04001392   0x04001392   0x00000002   PAD
-    0x04001394   0x04001394   0x0000002a   Code   RO          690    .text.mcmgr_early_init_internal  mcmgr_internal_core_api_lpc55s69.o
-    0x040013be   0x040013be   0x00000002   PAD
-    0x040013c0   0x040013c0   0x00000004   Code   RO          702    .text.mcmgr_get_current_core_internal  mcmgr_internal_core_api_lpc55s69.o
-    0x040013c4   0x040013c4   0x00000026   Code   RO          696    .text.mcmgr_get_startup_data_internal  mcmgr_internal_core_api_lpc55s69.o
-    0x040013ea   0x040013ea   0x00000002   PAD
-    0x040013ec   0x040013ec   0x0000001e   Code   RO          692    .text.mcmgr_late_init_internal  mcmgr_internal_core_api_lpc55s69.o
-    0x0400140a   0x0400140a   0x00000002   PAD
-    0x0400140c   0x0400140c   0x00000028   Code   RO          704    .text.mcmgr_trigger_event_internal  mcmgr_internal_core_api_lpc55s69.o
-    0x04001434   0x04001434   0x0000000e   Code   RO          737    .text.pint_intr_callback  main_core1.o
-    0x04001442   0x04001442   0x00000002   PAD
-    0x04001444   0x04001444   0x00000376   Code   RO          741    .text.xpt2046_read_average  main_core1.o
-    0x040017ba   0x040017ba   0x0000000e   Code   RO          984    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x040017c8   0x040017c8   0x00000002   Code   RO          985    i.__scatterload_null  mc_w.l(handlers.o)
-    0x040017ca   0x040017ca   0x0000000e   Code   RO          986    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x040017d8   0x040017d8   0x0000000c   Data   RO          722    .rodata.g_mcmgrSystem  mcmgr_internal_core_api_lpc55s69.o
-    0x040017e4   0x040017e4   0x00000010   Data   RO          721    .rodata.s_mcmgrCores  mcmgr_internal_core_api_lpc55s69.o
-    0x040017f4   0x040017f4   0x0000000a   Data   RO          627    .rodata.s_pintIRQ   fsl_pint.o
-    0x040017fe   0x040017fe   0x0000000f   Data   RO          723    .rodata.str1.1      mcmgr_internal_core_api_lpc55s69.o
-    0x0400180d   0x0400180d   0x00000003   PAD
-    0x04001810   0x04001810   0x00000010   Data   RO          983    Region$$Table       anon$$obj.o
+    0x04000688   0x04000688   0x00000004   Code   RO          689    .text.HardFault_Handler  mcmgr_internal_core_api_lpc55s69.o
+    0x0400068c   0x0400068c   0x000001c8   Code   RO          801    .text.LCD_Address_Set  lcd.o
+    0x04000854   0x04000854   0x00000034   Code   RO          685    .text.MAILBOX_IRQHandler  mcmgr_internal_core_api_lpc55s69.o
+    0x04000888   0x04000888   0x00000020   Code   RO          638    .text.MCMGR_EarlyInit  mcmgr.o
+    0x040008a8   0x040008a8   0x00000064   Code   RO          646    .text.MCMGR_FeedStartupDataEventHandler  mcmgr.o
+    0x0400090c   0x0400090c   0x00000054   Code   RO          650    .text.MCMGR_GetStartupData  mcmgr.o
+    0x04000960   0x04000960   0x00000058   Code   RO          642    .text.MCMGR_Init    mcmgr.o
+    0x040009b8   0x040009b8   0x00000068   Code   RO          644    .text.MCMGR_StartupDataEventHandler  mcmgr.o
+    0x04000a20   0x04000a20   0x0000002e   Code   RO          634    .text.MCMGR_TriggerEvent  mcmgr.o
+    0x04000a4e   0x04000a4e   0x00000002   PAD
+    0x04000a50   0x04000a50   0x00000004   Code   RO          693    .text.MemManage_Handler  mcmgr_internal_core_api_lpc55s69.o
+    0x04000a54   0x04000a54   0x00000004   Code   RO          691    .text.NMI_Handler   mcmgr_internal_core_api_lpc55s69.o
+    0x04000a58   0x04000a58   0x0000004a   Code   RO          592    .text.PIN_INT0_DriverIRQHandler  fsl_pint.o
+    0x04000aa2   0x04000aa2   0x00000002   PAD
+    0x04000aa4   0x04000aa4   0x0000004a   Code   RO          594    .text.PIN_INT1_DriverIRQHandler  fsl_pint.o
+    0x04000aee   0x04000aee   0x00000002   PAD
+    0x04000af0   0x04000af0   0x0000004a   Code   RO          596    .text.PIN_INT2_DriverIRQHandler  fsl_pint.o
+    0x04000b3a   0x04000b3a   0x00000002   PAD
+    0x04000b3c   0x04000b3c   0x0000004a   Code   RO          598    .text.PIN_INT3_DriverIRQHandler  fsl_pint.o
+    0x04000b86   0x04000b86   0x00000002   PAD
+    0x04000b88   0x04000b88   0x0000004a   Code   RO          600    .text.PIN_INT4_DriverIRQHandler  fsl_pint.o
+    0x04000bd2   0x04000bd2   0x00000002   PAD
+    0x04000bd4   0x04000bd4   0x0000004a   Code   RO          602    .text.PIN_INT5_DriverIRQHandler  fsl_pint.o
+    0x04000c1e   0x04000c1e   0x00000002   PAD
+    0x04000c20   0x04000c20   0x0000004a   Code   RO          604    .text.PIN_INT6_DriverIRQHandler  fsl_pint.o
+    0x04000c6a   0x04000c6a   0x00000002   PAD
+    0x04000c6c   0x04000c6c   0x0000004a   Code   RO          606    .text.PIN_INT7_DriverIRQHandler  fsl_pint.o
+    0x04000cb6   0x04000cb6   0x00000002   PAD
+    0x04000cb8   0x04000cb8   0x00000070   Code   RO          416    .text.RESET_PeripheralReset  fsl_reset.o
+    0x04000d28   0x04000d28   0x00000046   Code   RO          588    .text.SEC_GPIO_INT0_IRQ0_DriverIRQHandler  fsl_pint.o
+    0x04000d6e   0x04000d6e   0x00000002   PAD
+    0x04000d70   0x04000d70   0x00000046   Code   RO          590    .text.SEC_GPIO_INT0_IRQ1_DriverIRQHandler  fsl_pint.o
+    0x04000db6   0x04000db6   0x00000002   PAD
+    0x04000db8   0x04000db8   0x0000005e   Code   RO          172    .text.SPI_MasterSetBaud  fsl_spi.o
+    0x04000e16   0x04000e16   0x00000002   PAD
+    0x04000e18   0x04000e18   0x0000003c   Code   RO          147    .text.SystemInit    system_lpc55s69_cm33_core1.o
+    0x04000e54   0x04000e54   0x00000004   Code   RO          713    .text.SystemInitHook  main_core1.o
+    0x04000e58   0x04000e58   0x00000004   Code   RO          697    .text.UsageFault_Handler  mcmgr_internal_core_api_lpc55s69.o
+    0x04000e5c   0x04000e5c   0x0000012e   Code   RO          803    .text.lcd_refresh   lcd.o
+    0x04000f8a   0x04000f8a   0x00000002   PAD
+    0x04000f8c   0x04000f8c   0x00000150   Code   RO          727    .text.main          main_core1.o
+    0x040010dc   0x040010dc   0x0000002a   Code   RO          669    .text.mcmgr_early_init_internal  mcmgr_internal_core_api_lpc55s69.o
+    0x04001106   0x04001106   0x00000002   PAD
+    0x04001108   0x04001108   0x00000004   Code   RO          681    .text.mcmgr_get_current_core_internal  mcmgr_internal_core_api_lpc55s69.o
+    0x0400110c   0x0400110c   0x00000026   Code   RO          675    .text.mcmgr_get_startup_data_internal  mcmgr_internal_core_api_lpc55s69.o
+    0x04001132   0x04001132   0x00000002   PAD
+    0x04001134   0x04001134   0x0000001e   Code   RO          671    .text.mcmgr_late_init_internal  mcmgr_internal_core_api_lpc55s69.o
+    0x04001152   0x04001152   0x00000002   PAD
+    0x04001154   0x04001154   0x00000028   Code   RO          683    .text.mcmgr_trigger_event_internal  mcmgr_internal_core_api_lpc55s69.o
+    0x0400117c   0x0400117c   0x00000374   Code   RO          719    .text.xpt2046_read_average  main_core1.o
+    0x040014f0   0x040014f0   0x000000c0   Code   RO          723    .text.xpt2046_twice_read_xy  main_core1.o
+    0x040015b0   0x040015b0   0x0000000e   Code   RO          936    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x040015be   0x040015be   0x00000002   Code   RO          937    i.__scatterload_null  mc_w.l(handlers.o)
+    0x040015c0   0x040015c0   0x0000000e   Code   RO          938    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x040015ce   0x040015ce   0x00000002   PAD
+    0x040015d0   0x040015d0   0x0000000c   Data   RO          701    .rodata.g_mcmgrSystem  mcmgr_internal_core_api_lpc55s69.o
+    0x040015dc   0x040015dc   0x00000010   Data   RO          700    .rodata.s_mcmgrCores  mcmgr_internal_core_api_lpc55s69.o
+    0x040015ec   0x040015ec   0x0000000f   Data   RO          702    .rodata.str1.1      mcmgr_internal_core_api_lpc55s69.o
+    0x040015fb   0x040015fb   0x00000001   PAD
+    0x040015fc   0x040015fc   0x00000010   Data   RO          935    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_m_data (Exec base: 0x20040000, Load base: 0x04001820, Size: 0x00000194, Max: 0x00001000, ABSOLUTE)
+    Execution Region RW_m_data (Exec base: 0x20040000, Load base: 0x0400160c, Size: 0x00000194, Max: 0x00001000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20040000        -       0x00000048   Zero   RW          402    .bss..L_MergedGlobals  fsl_flexcomm.o
-    0x20040048        -       0x00000008   Zero   RW          752    .bss..L_MergedGlobals  main_core1.o
-    0x20040050        -       0x00000048   Zero   RW          680    .bss.MCMGR_eventTable  mcmgr.o
-    0x20040098        -       0x00000004   Zero   RW          851    .bss.g_LCDImageBuf  lcd.o
-    0x2004009c        -       0x000000b8   Zero   RW          535    .bss.s_DMAHandle    fsl_dma.o
-    0x20040154        -       0x00000008   Zero   RW          567    .bss.s_gintCallback  fsl_gint.o
-    0x2004015c        -       0x00000010   Zero   RW          720    .bss.s_mcmgrCoresContext  mcmgr_internal_core_api_lpc55s69.o
-    0x2004016c        -       0x00000028   Zero   RW          626    .bss.s_pintCallback  fsl_pint.o
+    0x20040000        -       0x00000048   Zero   RW          390    .bss..L_MergedGlobals  fsl_flexcomm.o
+    0x20040048        -       0x00000008   Zero   RW          730    .bss..L_MergedGlobals  main_core1.o
+    0x20040050        -       0x00000048   Zero   RW          660    .bss.MCMGR_eventTable  mcmgr.o
+    0x20040098        -       0x00000004   Zero   RW          805    .bss.g_LCDImageBuf  lcd.o
+    0x2004009c        -       0x000000b8   Zero   RW          519    .bss.s_DMAHandle    fsl_dma.o
+    0x20040154        -       0x00000008   Zero   RW          550    .bss.s_gintCallback  fsl_gint.o
+    0x2004015c        -       0x00000010   Zero   RW          699    .bss.s_mcmgrCoresContext  mcmgr_internal_core_api_lpc55s69.o
+    0x2004016c        -       0x00000028   Zero   RW          608    .bss.s_pintCallback  fsl_pint.o
 
 
-    Execution Region ARM_LIB_HEAP (Exec base: 0x20040194, Load base: 0x04001820, Size: 0x00001000, Max: 0x00001000, ABSOLUTE)
+    Execution Region ARM_LIB_HEAP (Exec base: 0x20040194, Load base: 0x0400160c, Size: 0x00001000, Max: 0x00001000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20040194        -       0x00001000   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
 
 
-    Execution Region ARM_LIB_STACK (Exec base: 0x20042000, Load base: 0x04001820, Size: 0x00001000, Max: 0x00001000, ABSOLUTE)
+    Execution Region ARM_LIB_STACK (Exec base: 0x20042000, Load base: 0x0400160c, Size: 0x00001000, Max: 0x00001000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20042000        -       0x00001000   Zero   RW            2    ARM_LIB_STACK.bss   anon$$obj.o
 
 
-    Execution Region RW_m_usb_bdt (Exec base: 0x40100000, Load base: 0x04001820, Size: 0x00000000, Max: 0x00000000, ABSOLUTE, UNINIT)
+    Execution Region RW_m_usb_bdt (Exec base: 0x40100000, Load base: 0x0400160c, Size: 0x00000000, Max: 0x00000000, ABSOLUTE, UNINIT)
 
     **** No section assigned to this execution region ****
 
 
-    Execution Region RW_m_usb_ram (Exec base: 0x40100000, Load base: 0x04001820, Size: 0x00000000, Max: 0x00004000, ABSOLUTE, UNINIT)
+    Execution Region RW_m_usb_ram (Exec base: 0x40100000, Load base: 0x0400160c, Size: 0x00000000, Max: 0x00004000, ABSOLUTE, UNINIT)
 
     **** No section assigned to this execution region ****
 
@@ -1995,24 +1910,23 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       238          0          0          0        184      27779   fsl_dma.o
-       198          0          0          0         72      15201   fsl_flexcomm.o
-        68          0          0          0          8      16411   fsl_gint.o
-        46          0          0          0          0      23771   fsl_inputmux.o
-      1092          0         10          0         40      25693   fsl_pint.o
-       112          0          0          0          0       8462   fsl_reset.o
-       100          0          0          0          0      20995   fsl_spi.o
-       932          0          0          0          4      79946   lcd.o
-      1342          0          0          0          8      24737   main_core1.o
-       454          0          0          0         72       6814   mcmgr.o
-       240          0         43          0         16      17761   mcmgr_internal_core_api_lpc55s69.o
-       556        272        304          0          0       2920   startup_lpc55s69_cm33_core1.o
-        60          0          0          0          0       9994   system_lpc55s69_cm33_core1.o
+       238          0          0          0        184      28487   fsl_dma.o
+       198          0          0          0         72      15460   fsl_flexcomm.o
+        68          0          0          0          8      16870   fsl_gint.o
+       732          0          0          0         40      27817   fsl_pint.o
+       112          0          0          0          0       8529   fsl_reset.o
+        94          0          0          0          0      21908   fsl_spi.o
+       758          0          0          0          4       5927   lcd.o
+      1416          0          0          0          8       9711   main_core1.o
+       454          0          0          0         72       7610   mcmgr.o
+       240          0         43          0         16      17990   mcmgr_internal_core_api_lpc55s69.o
+       556        272        304          0          0       2862   startup_lpc55s69_cm33_core1.o
+        60          0          0          0          0      10033   system_lpc55s69_cm33_core1.o
 
     ----------------------------------------------------------------------
-      5506        272        376          0       8596     280484   Object Totals
+      4984        272        364          0       8596     173204   Object Totals
          0          0         16          0       8192          0   (incl. Generated)
-        68          0          3          0          0          0   (incl. Padding)
+        58          0          1          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2030,8 +1944,8 @@ Image component sizes
         36          8          0          0          0         68   init.o
 
     ----------------------------------------------------------------------
-        86         16          0          0          0         68   Library Totals
-         0          0          0          0          0          0   (incl. Padding)
+        88         16          0          0          0         68   Library Totals
+         2          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2040,7 +1954,7 @@ Image component sizes
         86         16          0          0          0         68   mc_w.l
 
     ----------------------------------------------------------------------
-        86         16          0          0          0         68   Library Totals
+        88         16          0          0          0         68   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -2049,15 +1963,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5592        288        376          0       8596     280580   Grand Totals
-      5592        288        376          0       8596     280580   ELF Image Totals
-      5592        288        376          0          0          0   ROM Totals
+      5072        288        364          0       8596     173316   Grand Totals
+      5072        288        364          0       8596     173316   ELF Image Totals
+      5072        288        364          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 5968 (   5.83kB)
+    Total RO  Size (Code + RO Data)                 5436 (   5.31kB)
     Total RW  Size (RW Data + ZI Data)              8596 (   8.39kB)
-    Total ROM Size (Code + RO Data + RW Data)       5968 (   5.83kB)
+    Total ROM Size (Code + RO Data + RW Data)       5436 (   5.31kB)
 
 ==============================================================================
 

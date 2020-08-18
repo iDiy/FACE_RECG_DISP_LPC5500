@@ -32,6 +32,7 @@ static uint16_t LCD_WORD_WRITE(uint16_t data);
  * @param[1]    cmd      command or data.
  * @ret         NULL
 */
+#if 0
 void lcd_write_byte(uint8_t data, uint8_t cmd)
 {
     if (cmd) {
@@ -44,18 +45,39 @@ void lcd_write_byte(uint8_t data, uint8_t cmd)
     LCD_BYTE_WRITE(data);
     LCD_CS_SET();
 }
+#endif
+void LCD_WR_DATA8(uint8_t data)
+{
+    // LCD_CS_CLR();
+    LCD_BYTE_WRITE(data);
+    // LCD_CS_SET();
+}
 
 /**
  * @brief       lcd_write_word    Write a word data to LCD driver chip
  * @param[0]    data              write data content.
  * @ret         NULL
 */
+#if 0
 void lcd_write_word(uint16_t data)
 {
     LCD_DC_SET();
     LCD_CS_CLR();
     LCD_WORD_WRITE(data);
     LCD_CS_SET();
+}
+#endif
+void LCD_WR_DATA(uint16_t data)
+{
+    // LCD_CS_CLR();
+    LCD_WORD_WRITE(data);
+    // LCD_CS_SET();
+}
+void LCD_WR_REG(uint8_t dat)
+{
+	LCD_DC_CLR();//D????????
+	LCD_WR_DATA8(dat);
+	LCD_DC_SET();//D??y?Y
 }
 
 /**
@@ -64,17 +86,19 @@ void lcd_write_word(uint16_t data)
  * @param[1]    val               data content.
  * @ret         NULL
 */
+#if 0
 void lcd_write_reg(uint8_t reg, uint8_t val)
 {
     lcd_write_byte(reg, LCD_CMD);
     lcd_write_byte(val, LCD_DATA);
 }
-
+#endif
 /**
  * @brief       lcd_hardware_init   lcd hardware initialize
  * @param[0]    NULL
  * @ret         NULL
 */
+#if 0
 uint8_t lcd_hardware_init(void)
 {
     spi_master_config_t LCDSpiConfig;
@@ -103,7 +127,7 @@ uint8_t lcd_hardware_init(void)
     GPIO_PinInit(GPIO, LCD_BKL_PORT, LCD_BKL_PIN, &gpioPinConfig);    
     return true;
 }
-
+#endif
 /**
  * @brief       LCD_BYTE_WRITE   LCD write a 8bit data through SPI
  * @param[0]    data             data content
@@ -147,6 +171,7 @@ static uint16_t LCD_WORD_WRITE(uint16_t data)
  * @param[0]    count            delay ms
  * @ret         NULL
 */
+#if 0
 volatile uint32_t g_LCDDelayMsCnt;
 static void lcd_delayms(uint32_t count)
 {
@@ -155,20 +180,21 @@ static void lcd_delayms(uint32_t count)
         ;
     }
 }
-
+#endif
 /**
  * @brief       lcd_pow
  * @param[0]    m
  * @param[1]    n
  * @ret         result
 */
+#if 0
 static uint32_t lcd_pow(uint8_t m, uint8_t n)
 {
     uint32_t result = 1;
     while(n --) result *= m;
     return result;
 }
-
+#endif
 /* -------------------------------------------------------------------------- */
 /*                              Public function                               */
 /* -------------------------------------------------------------------------- */
@@ -179,6 +205,7 @@ static uint32_t lcd_pow(uint8_t m, uint8_t n)
  * @param[1]    y position
  * @ret         NULL
 */
+#if 0
 void lcd_set_cursor(uint16_t xpos, uint16_t ypos)
 {
     lcd_write_reg(0x02, xpos >> 8);
@@ -186,12 +213,25 @@ void lcd_set_cursor(uint16_t xpos, uint16_t ypos)
     lcd_write_reg(0x06, ypos >> 8);
     lcd_write_reg(0x07, ypos & 0xFF);   /* Row Start */
 }
+#endif
+
+void LCD_Address_Set(uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2)
+{
+    LCD_WR_REG(0x2a);//?§Ö??????
+    LCD_WR_DATA(x1);
+    LCD_WR_DATA(x2);
+    LCD_WR_REG(0x2b);//?§Ö??????
+    LCD_WR_DATA(y1);
+    LCD_WR_DATA(y2);
+    LCD_WR_REG(0x2c);//??????§Õ
+}
 
 /**
  * @brief       lcd_clear_screen   clear the lcd with color
  * @param[0]    color              displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_clear_screen(uint16_t color)
 {
     uint32_t i, cnt = 0;
@@ -209,7 +249,7 @@ void lcd_clear_screen(uint16_t color)
     }
     LCD_CS_SET();
 }
-
+#endif
 /**
  * @brief       lcd_draw_point     draw a point on the lcd with the color.
  * @param[0]    xpos               x position
@@ -217,13 +257,14 @@ void lcd_clear_screen(uint16_t color)
  * @param[2]    color              displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_draw_point(uint16_t xpos, uint16_t ypos, uint16_t color)
 {
     lcd_set_cursor(xpos, ypos);
     lcd_write_byte(0x22, LCD_CMD);
     lcd_write_word(color);
 }
-
+#endif
 /**
  * @brief       lcd_clear_block     clear a part of lcd with color
  * @param[0]    xpos                x position
@@ -231,6 +272,7 @@ void lcd_draw_point(uint16_t xpos, uint16_t ypos, uint16_t color)
  * @param[2]    color               displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_clear_block(uint16_t xpos, uint16_t ypos, uint16_t color)
 {
     uint32_t i;
@@ -244,7 +286,7 @@ void lcd_clear_block(uint16_t xpos, uint16_t ypos, uint16_t color)
     }
     LCD_CS_SET();
 }
-
+#endif
 /**
  * @brief       lcd_clear_block     display a char at the position on lcd
  * @param[0]    xpos                x position
@@ -254,6 +296,7 @@ void lcd_clear_block(uint16_t xpos, uint16_t ypos, uint16_t color)
  * @param[4]    color               displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_display_char(uint16_t xpos, uint16_t ypos, uint8_t chr, uint8_t font, uint16_t color) 
 {
     uint8_t i, j, temp;
@@ -286,7 +329,7 @@ void lcd_display_char(uint16_t xpos, uint16_t ypos, uint8_t chr, uint8_t font, u
         }
     }
 }
-
+#endif
 /**
  * @brief       lcd_display_num     display a number at the position on lcd.
  * @param[0]    xpos                x position
@@ -296,6 +339,7 @@ void lcd_display_char(uint16_t xpos, uint16_t ypos, uint8_t chr, uint8_t font, u
  * @param[4]    color               displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_display_num(uint16_t xpos, uint16_t ypos, uint32_t num, uint8_t len, uint8_t size, uint16_t color) 
 {
     uint8_t i, j = 0;
@@ -318,7 +362,7 @@ void lcd_display_num(uint16_t xpos, uint16_t ypos, uint32_t num, uint8_t len, ui
         lcd_display_char(xpos+(size/2)*i, ypos, '0'+temp, size, color);
     }
 }
-
+#endif
 /**
  * @brief       lcd_display_string     display a string at the position on lcd.
  * @param[0]    xpos                   x position
@@ -328,6 +372,7 @@ void lcd_display_num(uint16_t xpos, uint16_t ypos, uint32_t num, uint8_t len, ui
  * @param[4]    color                  displayed color
  * @ret         NULL
 */
+#if 0
 void lcd_display_string(uint16_t xpos, uint16_t ypos, const uint8_t *string, uint8_t size, uint16_t color)  
 {
     while (*string != '\0')
@@ -347,12 +392,13 @@ void lcd_display_string(uint16_t xpos, uint16_t ypos, const uint8_t *string, uin
         string ++;
     }
 }
-
+#endif
 /**
  * @brief       LCD initialize
  * @param       NULL
  * @retval      true
 */
+#if 0
 uint8_t lcd_init(void)
 {
     //lcd_hardware_init();
@@ -447,12 +493,13 @@ uint8_t lcd_init(void)
 
     return true;
 }
-
+#endif
 /**
  * @brief       initialize lcd refresh color
  * @param       color -- display color
  * @retval      NULL
 */
+#if 0
 void lcd_refresh_init(uint16_t color)
 {
     uint32_t i;
@@ -461,13 +508,14 @@ void lcd_refresh_init(uint16_t color)
         g_LCDDispBuf[i] = color;
     }
 }
-
+#endif
 /**
  * @brief       lcd_refresh_icon    refresh lcd display colors
  * @param[0]    xpos                x position
  * @param[1]    ypos                y position
  * @ret         NULL
 */
+#if 0
 void lcd_refresh_icon(uint16_t x, uint16_t y)
 {
     uint32_t i;
@@ -485,12 +533,13 @@ void lcd_refresh_icon(uint16_t x, uint16_t y)
     
     LCD_DC_SET();
 }
-
+#endif
 volatile uint16_t*  g_LCDImageBuf;
 
 
 void lcd_refresh(void)
 {
+    #if 0
     uint32_t i;
     uint32_t temp;
     g_LCDImageBuf = (uint16_t *)0x20010000;
@@ -504,6 +553,22 @@ void lcd_refresh(void)
 
         temp = (LCD_SPI->FIFORD);
     }
+    #endif
+    #if 1
+    uint32_t temp;
+    uint32_t i, wCount = LCD_WIDTH * LCD_HEIGHT;
+	  LCD_Address_Set(0,0,LCD_WIDTH-1,LCD_HEIGHT-1);
+    g_LCDImageBuf = (uint16_t *)0x20010000;
+    for (i = 0; i < wCount; i ++) {
+        /* wait if TX FIFO of previous transfer is not empty */
+        while ((LCD_SPI->FIFOSTAT & SPI_FIFOSTAT_TXNOTFULL_MASK) == 0) {
+        }
+        
+        LCD_SPI->FIFOWR = g_LCDImageBuf[i] | 0x0F400000;
+
+        temp = (LCD_SPI->FIFORD);
+    }
+    #endif
 }
 
 /* File End */

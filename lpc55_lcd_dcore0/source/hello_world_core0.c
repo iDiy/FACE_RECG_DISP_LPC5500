@@ -98,17 +98,24 @@ static void RemoteReadyEventHandler(uint16_t eventData, void *context)
     RemoteReadyEventData = 0;
     temp_x       = *(uint16_t *)0x20043000;//LCD_WIDTH - touch_y;
     temp_y       = *(uint16_t *)0x20043002;//touch_x;
+    #if 1
     if(temp_x >= 1930) temp_x = 1930;
     if(temp_y >= 1930) temp_y = 1930;
     if(temp_x <= 120)  temp_x = 120;
     if(temp_y <= 170)  temp_y = 170;
     
-    pid_state.x = LCD_WIDTH  - (temp_x-120)*LCD_WIDTH/(1930-120);
-    pid_state.y = LCD_HEIGHT - (temp_y-170)*LCD_HEIGHT/(1930-170);
+    // pid_state.x = LCD_WIDTH  - (temp_x-120)*LCD_WIDTH/(1930-120);
+    // pid_state.y = LCD_HEIGHT - (temp_y-170)*LCD_HEIGHT/(1930-170);
+    pid_state.x = (temp_x-120)*LCD_WIDTH/(1930-120);
+    pid_state.y = (temp_y-170)*LCD_HEIGHT/(1930-170);
+    #endif
     
+    if ((pid_state.x >= 0) && (pid_state.x < LCD_WIDTH) && (pid_state.y >= 0) && (pid_state.y < LCD_HEIGHT))
+    {
     pid_state.Pressed = 1;
     pid_state.Layer   = 0;
     GUI_TOUCH_StoreStateEx(&pid_state);
+    }
 }
 
 
@@ -138,6 +145,7 @@ WM_HWIN hOldItem;
 /*!
  * @brief Main function
  */
+static uint16_t idx = 0;
 int main(void)
 {
     volatile uint8_t *g_BLECmdCmp  = NULL; 
@@ -191,8 +199,8 @@ int main(void)
     GPIO_PinInit(GPIO, 1, 4, &led_config);
     uint16_t *g_LCDImageBuf;
     g_LCDImageBuf = (uint16_t *)0x20010000;
-    LCD_DC_SET();
-    LCD_CS_CLR();
+    // LCD_DC_SET();
+    // LCD_CS_CLR();
     
     SysTick_Config(SystemCoreClock / 100);
     
@@ -206,15 +214,61 @@ int main(void)
     while(1)
     {
         GUI_TOUCH_GetState(&State);
+        #if 1
+        if (State.Pressed == 0)
+        {
+        // GUI_X_Delay(1000);
+        if (idx == 0)
+        {
+            idx++;
+            CreateEnroll_faceTrigger();
+                    while(*(volatile uint16_t *)0x20043008 != 0xA55A)
+                    {
+                        ;
+                    }
+                    *(volatile uint16_t *)0x20043008 = 0x0000;
+                    *(volatile uint16_t *)0x20043004 = 0x55AA;
+            GUI_X_Delay(10);
+            GUI_MULTIBUF_Begin();
+            GUI_Exec();
+            GUI_MULTIBUF_End();
+                    *(volatile uint16_t *)0x20043004 = 0x0000;
+        }
+        else if (idx == 1)
+        {
+            idx++;
+            DemoTrigger();
+                    while(*(volatile uint16_t *)0x20043008 != 0xA55A)
+                    {
+                        ;
+                    }
+                    *(volatile uint16_t *)0x20043008 = 0x0000;
+                    *(volatile uint16_t *)0x20043004 = 0x55AA;
+            GUI_X_Delay(10);
+            GUI_MULTIBUF_Begin();
+            GUI_Exec();
+            GUI_MULTIBUF_End();
+                    *(volatile uint16_t *)0x20043004 = 0x0000;
+            
+        }
+        }
+        #endif
         /* Poll touch controller for update */
         if (State.Pressed == 1)
         {
+                    while(*(volatile uint16_t *)0x20043008 != 0xA55A)
+                    {
+                        ;
+                    }
+                    *(volatile uint16_t *)0x20043008 = 0x0000;
+                    *(volatile uint16_t *)0x20043004 = 0x55AA;
             GUI_X_Delay(10);
             State.Pressed = 0;
             GUI_TOUCH_StoreStateEx(&State);
             GUI_MULTIBUF_Begin();
             GUI_Exec();
             GUI_MULTIBUF_End();
+                    *(volatile uint16_t *)0x20043004 = 0x0000;
         }
         
         if(g_RecvCnt >= 10)

@@ -43,6 +43,7 @@ WM_HWIN Createlpc55sxx_imx7ulp_faceid(void);
 #define ID_IMAGE_1_IMAGE_0  0x01
 
 // USER START (Optionally insert additional defines)
+#define WM_START_DEMO (WM_USER + 0x00)
 // USER END
 
 /*********************************************************************
@@ -96,6 +97,9 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   // USER END
 
   switch (pMsg->MsgId) {
+    case WM_START_DEMO:
+        g_TestID = 1;
+    break;
   case WM_INIT_DIALOG:
     //
     // Initialization of 'Enroll_face'
@@ -275,6 +279,10 @@ WM_HWIN CreateEnroll_face(void) {
 }
 
 // USER START (Optionally insert additional public code)
+void DemoTrigger(void)
+{
+  WM_SendMessageNoPara(WM_GetClientWindow(g_EnrollFaceWMHWIN),WM_START_DEMO);
+}
 // USER END
 
 /*************************** End of file ****************************/

@@ -62,6 +62,12 @@ LCD_HEIGHT
 #define LCD_CS_PORT              1u
 #define LCD_CS_PIN               1u
 
+#define LCD_MOS_PORT             0u
+#define LCD_MOS_PIN              26u
+
+#define LCD_RST_PORT             1u
+#define LCD_RST_PIN              10u
+
 #define LCD_BKL_PORT             1u
 #define LCD_BKL_PIN              5u
 
@@ -71,8 +77,8 @@ LCD_HEIGHT
 #define LCD_CLK_PORT             1u
 #define LCD_CLK_PIN              2u
 
-#define LCD_TX_PORT              0u
-#define LCD_TX_PIN               26u
+//#define LCD_TX_PORT              0u
+//#define LCD_TX_PIN               26u
 
 #define LCD_TP_PORT              1u
 #define LCD_TP_PIN               7u
@@ -89,6 +95,14 @@ LCD_HEIGHT
 #define LCD_TP_SET()             GPIO_PinWrite(GPIO, LCD_TP_PORT, LCD_TP_PIN, 1u)    /* LCD command set high */
 #define LCD_TP_CLR()             GPIO_PinWrite(GPIO, LCD_TP_PORT, LCD_TP_PIN, 0u)    /* LCD command set low */         
 
+#define LCD_RST_SET()             GPIO_PinWrite(GPIO, LCD_RST_PORT, LCD_RST_PIN, 1u)    /* LCD command set high */
+#define LCD_RST_CLR()             GPIO_PinWrite(GPIO, LCD_RST_PORT, LCD_RST_PIN, 0u)    /* LCD command set low */         
+
+#define LCD_CLK_SET()             GPIO_PinWrite(GPIO, LCD_CLK_PORT, LCD_CLK_PIN, 1u)    /* LCD command set high */
+#define LCD_CLK_CLR()             GPIO_PinWrite(GPIO, LCD_CLK_PORT, LCD_CLK_PIN, 0u)    /* LCD command set low */         
+
+#define LCD_MOS_SET()             GPIO_PinWrite(GPIO, LCD_MOS_PORT, LCD_MOS_PIN, 1u)    /* LCD command set high */
+#define LCD_MOS_CLR()             GPIO_PinWrite(GPIO, LCD_MOS_PORT, LCD_MOS_PIN, 0u)    /* LCD command set low */         
 
 /* -------------------------------------------------------------------------- */
 /*                            functions extenal claim                         */

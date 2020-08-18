@@ -105,7 +105,7 @@ void LCD_X_Config(void)
 //    CONFIG_FLEXCOLOR Config = {0, 0, GUI_SWAP_XY, 0, 1};
  //   CONFIG_FLEXCOLOR Config = {0, 0, GUI_SWAP_XY, 0, 1};
     GUI_MULTIBUF_Config(1);
-    pDevice = GUI_DEVICE_CreateAndLink(GUIDRV_LIN_OSX_16, GUICC_M565, 0, 0); //GUICC_565, 0, 0);
+    pDevice = GUI_DEVICE_CreateAndLink(GUIDRV_LIN_16, GUICC_M565, 0, 0); //GUICC_565, 0, 0);
     //pDevice = GUI_DEVICE_CreateAndLink(GUIDRV_FLEXCOLOR, GUICC_565, 0, 0);
 //    GUIDRV_FlexColor_Config(pDevice, &Config);
 

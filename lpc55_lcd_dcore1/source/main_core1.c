@@ -149,6 +149,7 @@ bool xpt2046_twice_read_xy(uint16_t *phwXpos, uint16_t *phwYpos)
 void xpt2046_init(void)
 {
     uint16_t hwXpos, hwYpos;
+    #if 0
     /* Connect trigger sources to PINT */
     INPUTMUX_Init(INPUTMUX);
     INPUTMUX_AttachSignal(INPUTMUX, kPINT_PinInt0, kINPUTMUX_GpioPort1Pin6ToPintsel);
@@ -160,11 +161,13 @@ void xpt2046_init(void)
     PINT_PinInterruptConfig(PINT, kPINT_PinInt0, kPINT_PinIntEnableFallEdge, pint_intr_callback);
     /* Enable callbacks for PINT0 by Index */
     PINT_EnableCallbackByIndex(PINT, kPINT_PinInt0);
+    #endif
     
     g_TouchValueBuf = (uint16_t *)0x20043000;
     
     LCD_CS_SET();
     xpt2046_read_xy(&hwXpos, &hwYpos);
+    LCD_CS_CLR();
 }
 
 /*!
@@ -194,12 +197,13 @@ int main(void)
     SPI_MasterSetBaud(SPI8, 1000000, 1500000000);
     LCD_CS_SET();
     xpt2046_init();
-    SPI_MasterSetBaud(SPI8, 50000000, 1500000000);
-    lcd_set_cursor(0, 0);
-    lcd_write_byte(0x22, LCD_CMD);
-    
-    LCD_DC_SET();
     LCD_CS_CLR();
+    SPI_MasterSetBaud(SPI8, 50000000, 1500000000);
+    // lcd_set_cursor(0, 0);
+    // lcd_write_byte(0x22, LCD_CMD);
+    
+    // LCD_DC_SET();
+    // LCD_CS_CLR();
     while (1)
     {
         if(*(uint16_t *)0x20043004 != 0x55AA)
@@ -207,20 +211,23 @@ int main(void)
             *(uint16_t *)0x20043008 = 0x55AA;
             lcd_refresh();
             *(uint16_t *)0x20043008 = 0xA55A;
+            delay();
         }
         GPIO_PortToggle(GPIO, 1, 1<<4);
-        if( (g_TouchedFlag == 1) && (GPIO_PinRead(GPIO, 1, 6) == 0) )
+        if( /* (g_TouchedFlag == 1) && */ (GPIO_PinRead(GPIO, 1, 6) == 0) )
         {
             __disable_irq();
             g_TouchedFlag = 0;
             SPI_MasterSetBaud(SPI8, 1000000, 1500000000);
             LCD_CS_SET();
-            xpt2046_read_xy(&g_TouchValueBuf[0], &g_TouchValueBuf[1]);
-            SPI_MasterSetBaud(SPI8, 50000000, 1500000000);
-            lcd_set_cursor(0, 0);
-            lcd_write_byte(0x22, LCD_CMD);
-            LCD_DC_SET();
+            // xpt2046_read_xy(&g_TouchValueBuf[0], &g_TouchValueBuf[1]);
+            bool ret = xpt2046_twice_read_xy(&g_TouchValueBuf[0], &g_TouchValueBuf[1]);
             LCD_CS_CLR();
+            SPI_MasterSetBaud(SPI8, 50000000, 1500000000);
+            // lcd_set_cursor(0, 0);
+            // lcd_write_byte(0x22, LCD_CMD);
+            // LCD_DC_SET();
+            // LCD_CS_CLR();
             __enable_irq();
             g_TouchedFlag = 0;
             while(GPIO_PinRead(GPIO, 1, 6) == 0)
@@ -228,6 +235,7 @@ int main(void)
                 ;
             }
             /* Signal the other core we are ready by triggering the event and passing the APP_READY_EVENT_DATA */
+            if (ret)
             (void)MCMGR_TriggerEvent(kMCMGR_RemoteApplicationEvent, (1U) );
         }
     }

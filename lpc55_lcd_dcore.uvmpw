@@ -14,7 +14,6 @@
   <project>
     <PathAndName>.\lpc55_lcd_dcore0\lpc55_lcd_dcore0.uvprojx</PathAndName>
     <NodeIsActive>1</NodeIsActive>
-    <NodeIsExpanded>1</NodeIsExpanded>
   </project>
 
 </ProjectWorkspace>

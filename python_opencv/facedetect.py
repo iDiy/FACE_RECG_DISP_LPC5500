@@ -35,7 +35,7 @@ def serial_ports():
 # main process
 ser = serial.Serial()
 #ser.port = "/dev/ttyUSB0"
-ser.port = "COM42"
+ser.port = "COM22"
 #ser.port = "/dev/ttyS2"
 ser.baudrate = 115200
 ser.bytesize = serial.EIGHTBITS #number of bits per bytes
@@ -74,6 +74,7 @@ else:
 # 具体的演示。如果你安装它有困难，试试其他不需要它的演示。
 # 得到一个参考的摄像头# 0（默认）
 video_capture = cv2.VideoCapture(0)
+video_capture.open(0, cv2.CAP_DSHOW)
 #video_capture.set(3, 320); 
 #video_capture.set(4, 240); 
 
@@ -120,7 +121,7 @@ while True:
       ser.flushInput() #flush input buffer, discarding all its contents
       ser.flushOutput()#flush output buffer, aborting current output 
       ser.write( ("START%d,%d,%d,%d,%dEND\r\n" %(left,top,right,bottom, right-left) ).encode() )
-      cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
+      cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), -1)
       # 画出一个带名字的标签，放在框下
       #cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
       #font = cv2.FONT_HERSHEY_DUPLEX

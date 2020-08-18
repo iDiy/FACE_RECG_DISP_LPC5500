@@ -58,7 +58,7 @@ int GUI_TOUCH_GetxPhys(void)
 int GUI_TOUCH_GetyPhys(void)
 {
     int temp;
-    temp = *(uint16_t *)0x20043004;
+    temp = *(uint16_t *)0x20043002;
     return temp;
 }
 
